@@ -1,0 +1,60 @@
+{
+  "rules": {
+    // All data is readable by anyone.
+    ".read": true,
+    "people": {
+      // A list of users with their names on the site.
+      "$userid": {
+        // Only the user can write their own entry into this list.
+        ".write": "$userid ==auth.uid"
+      }
+    },
+    "users": {
+      "$userid": {
+        // The user is allowed to write everything in their bucket.
+        ".write": "$userid ==auth.uid",
+        "following": {
+          // The following list should only contain actual ids from the "people" list.
+          "$followingid": {
+            ".validate": "root.child('people').hasChild($followingid)"
+          }
+        },
+        "followers": {
+          // Anyone can add themself to to this user's followers list.
+          "$followerid": {
+            ".write": "$followerid ==auth.uid"
+          }
+        },
+        "feed": {
+          "$postid": {
+            // User A can write in user B's feed, but only if A is following B, and only for posts for which they are the author.
+            ".write": "root.child('users/' + $userid + '/following').hasChild(auth.uid) && root.child('posts/' + $postid + '/author').val() ==auth.uid"
+          }
+        }
+      }
+    },
+    "posts": {
+      // A global list of posts (the "firehose").
+      "$postid": {
+        // Modifying an existing post is not allowed.
+        ".write": "!data.exists()",
+        // Every post should have an author and a body.
+        ".validate": "newData.hasChildren(['author', 'content'])",
+        // A user can attribute a post only to themselves.
+        "author": {
+          ".validate": "newData.val() ==auth.uid"
+        },
+        "content": {
+          ".validate": "newData.isString() && newData.val().length < 350"
+        },
+/*         "star-count": { se spremeni...
+          "write": "root.child('posts/' + $postid + '/votes').contains(auth.uid)"
+        },
+        "votes": {
+          "$userid": {
+            ".write": "!root.child('posts/' + $postid + '/votes').hasChild(auth.uid)"
+        } */
+      }
+    }
+  }
+}

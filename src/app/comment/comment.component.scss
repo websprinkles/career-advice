@@ -1,0 +1,52 @@
+.card {
+  font-family: "oranienbaum";
+  background: white;
+  border-radius: 8px;
+  width: 100%;
+  color: #333;
+  margin: 0 auto;
+  padding: 20px;
+  word-break: break-word;
+  margin-bottom: 10px;
+  min-width: 550px;
+  max-width: 600px;
+  // cursor: pointer;
+}
+
+.author {
+  display: block;
+}
+
+b {
+  color: gray;
+  font-style: normal;
+}
+
+cite {
+  opacity: 0.7;
+  margin-bottom: 10px;
+}
+
+@media all and (max-width: 1300px) and (min-width: 930px) {
+  .comment {
+    padding: 10px;
+    min-width: 400px;
+    max-width: 500px;
+  }
+}
+
+@media all and (max-width: 930px) and (min-width: 521px) {
+  .comment {
+    min-width: 350px;
+    max-width: 470px;
+    max-height: unset;
+  }
+}
+
+@media all and (max-width: 520px) and (min-width: 0px) {
+  .comment {
+    padding: 10px;
+    min-width: 200px;
+    max-width: 500px;
+  }
+}

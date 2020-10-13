@@ -1,0 +1,153 @@
+ul.thirds {
+  border-top: 5px solid #eb4960;
+  padding: 60px;
+  padding-top: 0;
+  //background: #27363B;
+}
+
+.first-third,
+.second-third,
+.third-third {
+  padding-top: 60px;
+}
+
+.second-third {
+  // background: #99B998;
+}
+
+.row {
+  align-items: unset;
+}
+
+.success,
+.error {
+  color: #eb4960;
+}
+
+.btn-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.link {
+  padding-top: 10px;
+  font-size: large;
+}
+
+.basic-btn-reverse {
+  font-family: "oranienbaum" !important;
+  border-radius: 8px;
+  color: #27363b;
+  margin-top: 20px;
+  font-size: 18px;
+  background-color: white;
+  border: none;
+  font-weight: bold;
+}
+
+.thirds li {
+  flex: 1 1 0px;
+}
+
+.first {
+  margin-bottom: 10px;
+}
+
+.main-container {
+  align-items: center;
+}
+
+.transparent {
+  width: unset;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.not-found {
+  width: 100%;
+  height: 100%;
+  color: white;
+  font-size: 30px;
+  font-family: "pacifico";
+  display: flex;
+  justify-content: center;
+}
+
+.white {
+  color: #eb4960;
+  background: white;
+}
+
+.pink {
+  color: white;
+  background: #eb4960;
+}
+
+.first-third {
+  text-align: right;
+  padding-right: 70px;
+}
+
+.section {
+  width: 100%;
+}
+
+.collapsable {
+  padding: 20px;
+  padding-top: 20px;
+  border: 3px dotted white;
+  border-radius: 8px;
+  margin-top: -20px;
+  padding-top: 40px;
+  margin-bottom: 20px;
+  //background-image: linear-gradient(45deg, #27363B 0%, #27363B 20%, #EB4960 100%);
+}
+
+textarea,
+input {
+  width: 100%;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+  padding: 7px;
+  font-family: "oranienbaum";
+  height: 150px;
+}
+
+.third-third {
+  padding-left: 70px;
+}
+
+@media all and (max-width: 930px) and (min-width: 0px) {
+  .thirds {
+    flex-wrap: wrap;
+  }
+
+  .first-third,
+  .second-third,
+  .third-third {
+    padding-top: 10px;
+    padding-left: 10px;
+    text-align: left;
+  }
+}
+
+@media all and (max-width: 520px) and (min-width: 0px) {
+  .first-third {
+    display: none;
+  }
+
+  ul.thirds {
+    flex-direction: column-reverse;
+    padding: 10px;
+    padding-bottom: 70px;
+  }
+
+  .first-third,
+  .second-third,
+  .third-third {
+    padding: 0px;
+    padding-top: 5px;
+  }
+}

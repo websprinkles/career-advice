@@ -1,0 +1,64 @@
+<div *ngIf="post">
+  <mat-card>
+    <!-- <mat-card-title>Some title</mat-card-title> -->
+    <mat-card-subtitle>{{post.time.toDate() | date:'medium'}}</mat-card-subtitle>
+    <mat-card-content>{{post.message}}</mat-card-content>
+    <mat-card-actions>
+      <div  [hidden]="!likedByUser">
+        <button mat-button (click)="$event.stopPropagation(); addLike();">
+          <mat-icon fontSet="fa" fontIcon="fa-star"></mat-icon>
+          Liked {{' ' + numberOfLikes}}</button>
+      </div>
+      <div [hidden]="likedByUser">
+          <button mat-button (click)="$event.stopPropagation(); addLike();">
+            <mat-icon fontSet="fa" fontIcon="fa-heart"></mat-icon>Like {{' ' + numberOfLikes}}</button>
+      </div>
+    </mat-card-actions>
+  </mat-card>
+</div>
+<!--
+  <div *ngIf="showBottomWidget" class='bottom-widget'>
+    <ul class='row bottom-row'>
+      <li (click)="$event.stopPropagation(); addLike();">
+        <ul class="row">
+          <li [hidden]="!likedByUser"><i class="fa fa-heart"></i></li>
+          <li [hidden]="likedByUser"><i class="pi pi-heart"></i></li>
+          <li [hidden]="likedByUser">&nbsp;&nbsp;Like&nbsp;</li>
+          <li [hidden]="!likedByUser">&nbsp;&nbsp;Liked&nbsp;</li>
+          <li></li>
+        </ul>
+      </li>
+      <li>{{numberOfLikes}}&nbsp;&nbsp;Likes</li>
+      <li (click)="$event.stopPropagation(); showDialog();">
+        <i class="pi pi-ellipsis-h"></i>&nbsp;&nbsp;Report
+      </li>
+    </ul>
+    <p-dialog class="info" header="Report inappropriate content" [(visible)]="displayReportDialog" [style]="{width: '50vw'}" [baseZIndex]="10000">
+      <form *ngIf="inputForm" [formGroup]="inputForm" class="form">
+        <ul>
+          <li>
+            <h6>Please fill out the form below if you think the content of this post or any of its comment are inappropriate. Provide as many details as possible regarding the content you are reporting. We will take your report very seriously and take appropriate action.</h6>
+          </li>
+          <li>
+            <h6>Your message about the content you are reporting</h6>
+            <textarea formControlName="message" required placeholder="Type Your Message Here" maxlength="500"></textarea>
+          </li>
+        </ul>
+      </form>
+      <ng-template pTemplate="footer">
+        <div #btncontainer  style="display:inline-block;position:relative">
+        <button pButton
+          icon="pi pi-check"
+          (click)="onSubmit();
+          displayReportDialog=false"
+          label="Yes"
+          class="p-button-text"
+          pTooltip="{{!inputForm.valid ? 'Before Submitting a Message You Must Fill All Required Fields' : ''}}"
+          [appendTo]="btncontainer"
+          [disabled]="!inputForm.valid"></button>
+        <button pButton icon="pi pi-times" (click)="displayReportDialog=false; resetForm()" label="Cancel" class="cancel"></button>
+      </div>
+      </ng-template>
+    </p-dialog>
+  </div>
+</div> -->

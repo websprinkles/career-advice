@@ -1,0 +1,74 @@
+<div class="main-content">
+  <div class="left">
+
+    <mat-selection-list #shoes [multiple]="false">
+      <mat-list-option *ngFor="let category of categoriesMain" [value]="category">
+        {{category}}
+      </mat-list-option>
+    </mat-selection-list>
+
+    <mat-selection-list #shoes [multiple]="false">
+      <mat-list-option *ngFor="let category of categoriesMain" [value]="category">
+        {{category}}
+      </mat-list-option>
+    </mat-selection-list>
+
+    <!--       <p>
+      Option selected: {{shoes.selectedOptions.selected[0]?.value}}
+    </p> -->
+  </div>
+  <div class="right">
+    <div class="right-inner">
+      <div class="toolbar">
+        <!-- <mat-form-field appearance="fill"> -->
+          <div class="subcategory">
+          <mat-label>Subcategory</mat-label>
+          <mat-select>
+            <mat-option>None</mat-option>
+            <mat-option *ngFor="let category of categoriesMain" [value]="selectedCategory">{{category}}</mat-option>
+          </mat-select>
+        </div>
+        <!-- </mat-form-field> -->
+        <span class="example-spacer"></span>
+        <div class="write">
+        <button mat-button><mat-icon fontSet="fa" fontIcon="fa-plus"></mat-icon>Add advice</button>
+      </div>
+
+    </div>
+
+      <ul class="main-list">
+        <li *ngFor="let post of posts" (click)="selectPost(post);">
+          <app-card [post]="post"></app-card>
+        </li>
+      </ul>
+      <mat-card>element</mat-card>
+      <mat-card>element</mat-card>
+      <mat-card>element</mat-card>
+      <div>
+        elllement
+      </div>
+      <div>
+        elllement
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="main-content">
+  <div class="part left-side column">
+    <div>hello</div>
+  </div>
+  <div class="part middle-side">
+    <ul class="main-list">
+      <li *ngFor="let post of posts" (click)="selectPost(post);"><app-card [post]="post"></app-card></li>
+    </ul>
+    <div *ngIf="!posts || !posts.length" class="main-list empty"><br>There are no posts for the chosen categories. Be the first to write one!</div>
+  </div>
+  <div class="part left-padding right-side">
+    <div class="right-side-inner">
+      <app-post-form></app-post-form>
+      <p-dropdown [options]="categories" [(ngModel)]="selectedCategory" (onChange)="categoryChanged()" placeholder="CATEGORY" class='secondary-dropdown'></p-dropdown>
+      <p-toggleButton class="pop-btn" [(ngModel)]="orderByTime" (onChange)="orderByDate()" onLabel="Most Popular" offLabel="Newest First" onIcon="pi pi-heart" offIcon="pi pi-calendar" [style]="{'width': '10em'}"></p-toggleButton>
+    </div>
+  </div>
+</div> -->

@@ -1,0 +1,39 @@
+{
+  "users": {
+    "0": {
+      "name": "spela",
+      "email": "spela@gmail.com"
+    },
+    "1": {
+      "name": "matija",
+      "email": "matija@gmail.com"
+    },
+    "2": {
+      "name": "hello",
+      "email": "matija@gmail.com"
+    }
+  },
+  "posts": {
+    "0": {
+      "name": "spela",
+      "fromGeneration": "1990",
+      "toGeneration": "2000",
+      "message": "this is my message it will be long but not too long as the max limit is 350 chars. i hope that css will not fall apart with any shorter message like this one. happy programming, programmer",
+      "category": "work"
+    },
+    "1": {
+      "name": "matija",
+      "fromGeneration": "1990",
+      "toGeneration": "2000",
+      "message": "well hello there",
+      "category": "fun"
+    },
+    "2": {
+      "name": "hello",
+      "fromGeneration": "1990",
+      "toGeneration": "2000",
+      "message": "i hope that css will not fall apart with any shorter message like this one. happy programming, programmer",
+      "category": "freetime"
+    }
+  }
+}

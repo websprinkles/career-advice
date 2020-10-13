@@ -1,0 +1,132 @@
+<div class="user-content">
+  <div class="row">
+    <div class="col4" style="position: relative">
+      <div class="link" style="position: absolute">
+        <!-- <img class="card-img-top image" [src]="user.image" *ngIf="user.image" alt="User image"> -->
+        <!-- <img class="card-img-top image" src="https://via.placeholder.com/400x300" *ngIf="!user.image" alt="User image"> -->
+        <button pButton (click)="goBack();" icon="pi pi-arrow-left" label="Go Back" class="transparent white"></button>
+      </div>
+      <p-tabView *ngIf="user">
+        <p-tabPanel header="Your Posts">
+          <div *ngIf="!userPosts || !userPosts.length" class="row row-center">You have not written any post so far.</div>
+          <div *ngIf="userPosts && userPosts.length" class="row row-center">
+            <div class="right-margin">
+              <p-toggleButton class="basic-btn" [(ngModel)]="orderPostsByTimeAsc" (onChange)="orderPostsByDate()" onLabel="Newest First" offLabel="Oldest First" onIcon="pi pi-arrow-up" offIcon="pi pi-arrow-down" [style]="{'width': '10em'}"></p-toggleButton>
+            </div>
+            <ul>
+              <li *ngFor="let post of userPosts" class="row">
+                <div class="card-container">
+                  <app-card (click)="selectPost(post.id)" [post]=post></app-card>
+                </div>
+                <div class="column margin-bottom">
+                  <button pButton type="button" (click)="selectPost(post.id);" icon="pi pi-search" label="Details" class="btn edit dark-font"></button>
+                  <!-- <p-button label="Delete" icon="pi pi-search" (click)="op.toggle($event)"></p-button> -->
+                  <button pButton type="text" (click)="op.show($event)" icon="pi pi-times" label="Delete" class="btn edit"></button>
+                </div>
+                <p-overlayPanel #op appendTo="body" styleClass="warn">
+                  <ng-template pTemplate>
+                    <h6>Do You Really Want To Delete This Post? <br> All of its comments will be deleted as well.</h6>
+                    <button pButton type="button" (click)="deletePost(post);" icon="pi pi-times" label="Click Here To Permanently Delete This Post" class="btn edit"></button>
+                  </ng-template>
+              </p-overlayPanel>
+              </li>
+            </ul>
+          </div>
+        </p-tabPanel>
+        <p-tabPanel header="Your Comments">
+          <div *ngIf="!userComments || !userComments.length" class="row row-center">You have not written any comment so far.</div>
+          <div *ngIf="userComments && userComments.length" class="row row-center">
+            <div class="right-margin">
+              <p-toggleButton class="basic-btn" [(ngModel)]="orderCommentsByTimeAsc" (onChange)="orderCommentsByDate()" onLabel="Newest First" offLabel="Oldest First" onIcon="pi pi-arrow-up" offIcon="pi pi-arrow-down" [style]="{'width': '10em'}"></p-toggleButton>
+            </div>
+            <ul>
+              <li *ngFor="let comment of userComments" class="row">
+                <div class="card-container">
+                  <app-comment [comment]=comment></app-comment>
+                </div>
+                <div class="column margin-bottom">
+                  <button pButton type="button" (click)="selectPost(comment.postId);" icon="pi pi-search" label="Details" class="btn edit dark-font"></button>
+                  <button pButton type="text" (click)="op1.show($event)" icon="pi pi-times" label="Delete" class="btn edit"></button>
+                </div>
+                <p-overlayPanel #op1 appendTo="body" styleClass="warn">
+                  <ng-template pTemplate>
+                    <h6>Do You Really Want To Delete This Comment?</h6>
+                    <button pButton type="button" (click)="deleteComment(comment);" icon="pi pi-times" label="Click Here To Permanently Delete This Comment" class="btn edit"></button>
+                  </ng-template>
+              </p-overlayPanel>
+              </li>
+            </ul>
+          </div>
+        </p-tabPanel>
+        <p-tabPanel header="Likes">
+          <div class="popular-list column">
+            <div *ngIf="!userLikedPosts || !userLikedPosts.length" class="row row-center">You have not liked any post so far.</div>
+            <ul *ngIf="userLikedPosts">
+              <li *ngFor="let post of userLikedPosts" (click)="selectPost(post.id)"><app-card [post]=post [likesDisabled]="true"></app-card></li>
+            </ul>
+          </div>
+        </p-tabPanel>
+        <p-tabPanel header="Your Profile">
+          <div class="row row-center profile">
+            <ul class="column">
+
+              <li class="li-strech">
+                <ul class="row row-strech">
+                  <li class="emphasized label">Your Profile Name:</li>
+                  <li class="emphasized data">{{user.displayName}}</li>
+                  <li class="right">
+                    <div class="card-body">
+                      <button pButton type="button" (click)="name.show($event)" icon="pi pi-pencil" label="Edit" class="btn edit dark-font"></button>
+                      <p-overlayPanel #name appendTo="body" styleClass="warn">
+                        <ng-template pTemplate>
+                          <form *ngIf="profileForm" [formGroup]="profileForm">
+                            <div class="form-group">
+                              <label>Your New Profile Name</label>
+                              <input type="text" formControlName="name" class="form-control" required maxlength="100">
+                            </div>
+                          </form>
+                          <a (click)="save(profileForm.value); name.hide($event)" class="white-link">Save</a>
+                        </ng-template>
+                      </p-overlayPanel>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+
+              <li class="li-strech">
+                <ul class="row row-strech">
+                  <li class="emphasized label">Your Email:</li>
+                  <li class="emphasized data">{{user.email}}</li>
+                </ul>
+              </li>
+
+              <li class="li-strech">
+                <ul class="row row-strech">
+                  <li class="emphasized label">Delete Your Profile:</li>
+                  <li class="emphasized data data-delete">Delete you user data, your posts and comments</li>
+                  <li class="right">
+                    <div class="card-body">
+                      <button pButton type="button" (click)="delete.show($event)" icon="pi pi-times" label="Delete Account" class="btn edit dark-font"></button>
+                      <p-overlayPanel #delete appendTo="body" styleClass="warn">
+                        <ng-template pTemplate>
+                          <div>
+                            Do you really want to delete your account? All your data (including posts and comments) will be permanently deleted.
+                          </div>
+                          <a (click)="deleteAccount(); delete.hide($event)" class="white-link">Delete My Account</a>
+                        </ng-template>
+                      </p-overlayPanel>
+                      <div>{{errorDeleteMsg}}</div>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+
+            </ul>
+
+          </div>
+        </p-tabPanel>
+    </p-tabView>
+
+    </div>
+  </div>
+</div>

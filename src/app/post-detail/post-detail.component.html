@@ -1,0 +1,51 @@
+<ul class="thirds row">
+  <li class="first-third">
+    <button pButton (click)="goHome();" icon="pi pi-arrow-left" label="Go To Home Page" class="transparent white"></button>
+  </li>
+  <li class="second-third">
+    <div *ngIf="!post" class="not-found">
+      This post no longer exists.
+    </div>
+    <div *ngIf="post" class="main-container column">
+      <div class="section first">
+        <app-card [post]='post' [showBottomWidget]="true"></app-card>
+      </div>
+
+      <div class="section second">
+        <p-toggleButton [(ngModel)]="addComment" class="basic-btn" onLabel="Add a comment" offLabel="Add a Comment" onIcon="pi pi-minus" offIcon="pi pi-plus"></p-toggleButton>
+        <div *ngIf="addComment" class="collapsable">
+          <form *ngIf="inputForm" [formGroup]="inputForm" class="form">
+            <textarea formControlName="comment" required placeholder="Type Your Comment Here" maxlength="500"></textarea>
+          </form>
+          <div *ngIf="!user" class="link">
+            <a [routerLink]="['/home', {outlets: {modal: ['login']}}]" queryParamsHandling="merge">
+            Make sure you are logged in before commenting.</a>
+          </div>
+          <div class="btn-wrap">
+            <button pButton
+              icon="fa fa-paper-plane"
+              (click)="onSubmit();
+              displayDialog=false"
+              label="Post A Comment"
+              class="basic-btn-reverse"
+              [disabled]="!inputForm.valid || !user"></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="section third">
+        <p-toggleButton [(ngModel)]="viewComments" class="basic-btn" offLabel="View Comments" onLabel="Hide Comments" offIcon="pi pi-plus" onIcon="pi pi-minus"></p-toggleButton>
+        <div *ngIf="viewComments && comments" class="collapsable">
+          <ul>
+            <li *ngFor="let comment of comments;">
+              <app-comment [comment]="comment"></app-comment>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </li>
+  <li class="third-third">
+    <button pButton (click)="goToUserPage();" icon="pi pi-arrow-right" iconPos="right" label="Go To User Page" class="transparent pink"></button>
+  </li>
+</ul>
