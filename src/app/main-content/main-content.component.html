@@ -1,55 +1,41 @@
 <div class="main-content">
   <div class="left">
 
-    <mat-selection-list #shoes [multiple]="false">
-      <mat-list-option *ngFor="let category of categoriesMain" [value]="category">
-        {{category}}
+    <mat-selection-list #categories1 [multiple]="false">
+      <mat-list-option *ngFor="let category of categories" [value]="category.value" (click)="selectCategory(category);">
+        {{category.label}}
       </mat-list-option>
     </mat-selection-list>
 
-    <mat-selection-list #shoes [multiple]="false">
-      <mat-list-option *ngFor="let category of categoriesMain" [value]="category">
-        {{category}}
-      </mat-list-option>
-    </mat-selection-list>
-
-    <!--       <p>
-      Option selected: {{shoes.selectedOptions.selected[0]?.value}}
+    <!-- <p>
+      Option selected: {{categories1.selectedOptions.selected[0]?.value}}
     </p> -->
   </div>
   <div class="right">
     <div class="right-inner">
       <div class="toolbar">
-        <!-- <mat-form-field appearance="fill"> -->
-          <div class="subcategory">
-          <mat-label>Subcategory</mat-label>
-          <mat-select>
+
+        <div class="subcategory">
+          <mat-label [hidden]="selectedSubcategory">Subcategory</mat-label>
+          <mat-select [(value)]="selectedSubcategory">
             <mat-option>None</mat-option>
-            <mat-option *ngFor="let category of categoriesMain" [value]="selectedCategory">{{category}}</mat-option>
+            <mat-option *ngFor="let subcategory of subcategories" [value]="subcategory.value" (click)="selectSubcategory(subcategory);">{{subcategory.label}}</mat-option>
           </mat-select>
         </div>
-        <!-- </mat-form-field> -->
+
         <span class="example-spacer"></span>
+
         <div class="write">
-        <button mat-button><mat-icon fontSet="fa" fontIcon="fa-plus"></mat-icon>Add advice</button>
-      </div>
+          <app-post-form></app-post-form>
+        </div>
 
     </div>
 
       <ul class="main-list">
-        <li *ngFor="let post of posts" (click)="selectPost(post);">
+<!--         <li *ngFor="let post of posts" (click)="selectPost(post);">
           <app-card [post]="post"></app-card>
-        </li>
+        </li> -->
       </ul>
-      <mat-card>element</mat-card>
-      <mat-card>element</mat-card>
-      <mat-card>element</mat-card>
-      <div>
-        elllement
-      </div>
-      <div>
-        elllement
-      </div>
     </div>
   </div>
 </div>

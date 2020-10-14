@@ -1,5 +1,67 @@
-export const CategoriesMain = [
-  'Architecture and Engineering',
+export const Categories = [
+  {label: 'Not selected', value: 'Unknown',
+    children: [{label: 'nnn', value: 'bla'}, {label: 'nnn', value: 'la'}]},
+  {label: 'Architecture and Engineering', value: 'Architecture and Engineering',
+    children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]},
+  {label: 'Arts and Design', value: 'Arts and Design', children: [{label: 'nnn', value: 'bla'}, {label: 'iiii', value: 'la'}]},
+  {label: 'Building and Grounds Cleaning', value: 'Building and Grounds Cleaning', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]},
+  {label: 'Business and Financial', value: 'Business and Financial', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]},
+  {label: 'Community and Social Service', value: 'Community and Social Service', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]},
+  {label: 'Computer and Information Technology', value: 'Computer and Information Technology', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]},
+  {label: 'Construction and Extraction', value: 'Construction and Extraction', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]},
+  {label: 'Education, Training, and Library', value: 'Education, Training, and Library', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]},
+  {label: 'Entertainment and Sports', value: 'Entertainment and Sports', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]},
+  {label: 'Farming, Fishing, and Forestry', value: 'Farming, Fishing, and Forestry', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]},
+  {label: 'Food Preparation and Serving', value: 'Food Preparation and Serving', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]},
+  {label: 'Healthcare', value: 'Healthcare', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]},
+  {label: 'Installation, Maintenance, and Repair', value: 'Installation, Maintenance, and Repair', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]},
+  {label: 'Legal', value: 'Legal', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]},
+  {label: 'Life, Physical, and Social Science', value: 'Life, Physical, and Social Science', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]},
+  {label: 'Management', value: 'Management', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]},
+  {label: 'Math', value: 'Math', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]},
+  {label: 'Media and Communication', value: 'Media and Communication', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]},
+  {label: 'Military', value: 'Military', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]},
+  {label: 'Office and Administration', value: 'Office and Administration', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]},
+  {label: 'Personal Care and Service', value: 'Personal Care and Service', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]},
+  {label: 'Production', value: 'Production', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]},
+  {label: 'Protective Service', value: 'Protective Service', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]},
+  {label: 'Sales', value: 'Sales', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]},
+  {label: 'Transportation and Material Moving', value: 'Transportation and Material Moving', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]},
+];
+
+/* export const Subcategories = {
+  'Unknown': [],
+  'Architecture and Engineering': [{label: 'aaaaa', value: 'aaaaa', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'bbb', value: 'bbbbb', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'c', value: 'ccccc'}],
+  'Arts and Design': [{label: 'ooooo', value: 'oooo', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'la', value: 'la', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'a', value: 'a'}],
+  'Building and Grounds Cleaning':  [{label: 'bla', value: 'bla', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'la', value: 'la', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'a', value: 'a'}],
+  'Business and Financial':  [{label: 'bla', value: 'bla', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'la', value: 'la', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'a', value: 'a'}],
+  'Community and Social Service':  [{label: 'bla', value: 'bla', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'la', value: 'la', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'a', value: 'a'}],
+  'Computer and Information Technology':  [{label: 'bla', value: 'bla', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'la', value: 'la', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'a', value: 'a'}],
+  'Construction and Extraction':  [{label: 'bla', value: 'bla', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'la', value: 'la', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'a', value: 'a'}],
+  'Education, Training, and Library': [{label: 'bla', value: 'bla', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'la', value: 'la', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'a', value: 'a'}],
+  'Entertainment and Sports': [{label: 'bla', value: 'bla', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'la', value: 'la', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'a', value: 'a'}],
+  'Farming, Fishing, and Forestry': [{label: 'bla', value: 'bla', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'la', value: 'la', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'a', value: 'a'}],
+  'Food Preparation and Serving': [{label: 'bla', value: 'bla', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'la', value: 'la', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'a', value: 'a'}],
+  'Healthcare': [{label: 'bla', value: 'bla', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'la', value: 'la', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'a', value: 'a'}],
+  'Installation, Maintenance, and Repair': [{label: 'bla', value: 'bla', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'la', value: 'la', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'a', value: 'a'}],
+  'Legal': [{label: 'bla', value: 'bla', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'la', value: 'la', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'a', value: 'a'}],
+  'Life, Physical, and Social Science': [{label: 'bla', value: 'bla', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'la', value: 'la', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'a', value: 'a'}],
+  'Management': [{label: 'bla', value: 'bla', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'la', value: 'la', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'a', value: 'a'}],
+  'Math': [{label: 'bla', value: 'bla', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'la', value: 'la', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'a', value: 'a'}],
+  'Media and Communication': [{label: 'bla', value: 'bla', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'la', value: 'la', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'a', value: 'a'}],
+  'Military': [{label: 'bla', value: 'bla', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'la', value: 'la', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'a', value: 'a'}],
+  'Office and Administration': [{label: 'bla', value: 'bla', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'la', value: 'la', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'a', value: 'a'}],
+  'Personal Care and Service': [{label: 'bla', value: 'bla', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'la', value: 'la', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'a', value: 'a'}],
+  'Production': [{label: 'bla', value: 'bla', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'la', value: 'la', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'a', value: 'a'}],
+  'Protective Service': [{label: 'bla', value: 'bla', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'la', value: 'la', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'a', value: 'a'}],
+  'Sales': [{label: 'bla', value: 'bla', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'la', value: 'la', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'a', value: 'a'}],
+  'Transportation and Material Moving': [{label: 'bla', value: 'bla', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'la', value: 'la', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'a', value: 'a'}]
+}; */
+
+
+/* export const Subategories = [
+  {label: 'Not selected', value: 'Unknown', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]},
+  {label: 'Architecture and Engineering', value: 'Architecture and Engineering', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]},
   'Arts and Design',
   'Building and Grounds Cleaning',
   'Business and Financial',
@@ -24,77 +86,4 @@ export const CategoriesMain = [
   'Protective Service',
   'Sales',
   'Transportation and Material Moving'
-];
-
-
-export const GenerationsTo = [
-  {label: '1900s', value: 1900},
-  {label: '1910s', value: 1910},
-  {label: '1920s', value: 1920},
-  {label: '1930s', value: 1930},
-  {label: '1940s', value: 1940},
-  {label: '1950s', value: 1950},
-  {label: '1960s', value: 1960},
-  {label: '1970s', value: 1970},
-  {label: '1980s', value: 1980},
-  {label: '1990s', value: 1990},
-  {label: '2000s', value: 2000},
-  {label: '2010s', value: 2010}
-];
-
-export const GenerationsFrom = [
-  {label: 'Not selected', value: 'Unknown'},
-  {label: '1900s', value: 1900},
-  {label: '1910s', value: 1910},
-  {label: '1920s', value: 1920},
-  {label: '1930s', value: 1930},
-  {label: '1940s', value: 1940},
-  {label: '1950s', value: 1950},
-  {label: '1960s', value: 1960},
-  {label: '1970s', value: 1970},
-  {label: '1980s', value: 1980},
-  {label: '1990s', value: 1990},
-  {label: '2000s', value: 2000}
-];
-
-export const GenerationsToFilter = [
-  {label: 'All Generations', value: 'Unknown'},
-  {label: '1900s generation', value: 1900},
-  {label: '1910s generation', value: 1910},
-  {label: '1920s generation', value: 1920},
-  {label: '1930s generation', value: 1930},
-  {label: '1940s generation', value: 1940},
-  {label: '1950s generation', value: 1950},
-  {label: '1960s generation', value: 1960},
-  {label: '1970s generation', value: 1970},
-  {label: '1980s generation', value: 1980},
-  {label: '1990s generation', value: 1990},
-  {label: '2000s generation', value: 2000},
-  {label: '2010s generation', value: 2010}
-];
-
-export const GenerationsFromFilter = [
-  {label: 'All Generations', value: 'Unknown'},
-  {label: '1900s generation', value: 1900},
-  {label: '1910s generation', value: 1910},
-  {label: '1920s generation', value: 1920},
-  {label: '1930s generation', value: 1930},
-  {label: '1940s generation', value: 1940},
-  {label: '1950s generation', value: 1950},
-  {label: '1960s generation', value: 1960},
-  {label: '1970s generation', value: 1970},
-  {label: '1980s generation', value: 1980},
-  {label: '1990s generation', value: 1990},
-  {label: '2000s generation', value: 2000}
-];
-
-export const Categories = [
-  {label: 'Not selected', value: 'Unknown'},
-  {label: 'Family', value: 'Family'},
-  {label: 'Social Life', value: 'Social Life'},
-  {label: 'Romance', value: 'Romance'},
-  {label: 'Health', value: 'Health'},
-  {label: 'Fun', value: 'Fun'},
-  {label: 'Career', value: 'Career'},
-  {label: 'General', value: 'General'}
-];
+]; */

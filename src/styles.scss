@@ -47,11 +47,11 @@ background-size:20px 20px;
 
 a {
   color: #EB4960;
-  font-family: 'oranienbaum';
+  font-family: 'inconsolata';
   text-decoration: none;
 }
 
-a, button, .p-button {
+a, button, .p-button, .mat-card {
   cursor: pointer;
 }
 
@@ -69,6 +69,110 @@ ul {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.mat-button.login-btn,
+.login-btn .p-togglebutton.p-button,
+.login-btn .p-togglebutton.p-button.p-highlight {
+  display: flex;
+  align-content: normal;
+  justify-content: center;
+  width: 100% !important;
+  background: darksalmon;
+  border: none;
+  border-radius: 8px;
+  color: #1E1E20;
+  font-family: 'inconsolata';
+  font-weight: bold;
+  font-size: 1.3rem;
+  margin-top: 20px;
+}
+
+.password .p-togglebutton.p-button,
+.password .p-togglebutton.p-button.p-highlight {
+  color: white;
+  background: cadetblue;
+}
+
+.mat-button.google-login {
+  color: #1E1E20;
+  background: #8C7AA0;
+
+  .mat-icon {
+    vertical-align: baseline;
+  }
+}
+
+.no-account p {
+  background: #1E1E20;
+  display: inline-block;
+}
+
+.mat-button.primary-btn {
+  background: #9DBDA1;
+  color: white;
+  width: 140px;
+  padding: 2px;
+  font-size: 16px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "inconsolata";
+  font-weight: bold;
+  .mat-icon {
+    vertical-align: baseline;
+  }
+}
+
+.basic-btn .p-togglebutton.p-button,
+.basic-btn .p-togglebutton.p-button.p-highlight {
+  font-family: 'inconsolata' !important;
+  border-radius: 8px;
+  color: white;
+  margin-top: 10px;
+  font-size: 16px;
+  background: #9DBDA1;
+  border: 1px solid #9DBDA1;
+  font-weight: bold;
+  .p-button-label {
+    margin-bottom: -2px;
+  }
+  .p-button-icon-left {
+    color: white;
+    font-size: 16px;
+  }
+}
+
+.basic-btn.basic-dark-btn .p-togglebutton.p-button, .basic-btn .p-togglebutton.p-button.p-highlight {
+  background: #F3C49C;
+  border: 1px solid #F3C49C;
+  color: #1E1E20;
+  .p-button-icon-left {
+    color: #1E1E20;
+  }
+}
+
+.auth-form {
+  background: #9DBDA1;
+  font-family: "inconsolata";
+  color: white;
+  border-radius: 3px;
+  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.2);
+  font-size: 1rem;
+  max-width: 450px;
+  min-width: 325px;
+  max-height: 520px;
+  //border: 8px double white;
+
+  .btn.transparent {
+    padding: 0.5rem;
+  }
+
+  .container {
+    padding: 30px;
+    padding-top: 0;
+  }
 }
 
 .primary-font {
@@ -343,47 +447,6 @@ ul {
   align-items: baseline;
   .p-button-icon-left {
     color: transparent;
-  }
-}
-
-.basic-btn .p-togglebutton.p-button,
-.basic-btn .p-togglebutton.p-button.p-highlight {
-  font-family: 'oranienbaum' !important;
-  border-radius: 8px;
-  color: white;
-  margin-top: 10px;
-  font-size: 18px;
-  background-color: #F4837D;
-  border: 1px solid #F4837D;
-  font-weight: bold;
-  .p-button-label {
-    margin-bottom: -2px;
-  }
-  .p-button-icon-left {
-    color: white;
-    font-size: 18px;
-  }
-}
-
-.auth-form {
-  background-color: #27363B;
-  color: white;
-  font-family: 'oranienbaum';
-  border-radius: 3px;
-  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.2);
-  font-size: 1rem;
-  max-width: 450px;
-  min-width: 325px;
-  max-height: 520px;
-  //border: 8px double white;
-
-  .btn.transparent {
-    padding: 0.5rem;
-  }
-
-  .container {
-    padding: 30px;
-    padding-top: 0;
   }
 }
 

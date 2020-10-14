@@ -1,9 +1,8 @@
 export class PostModel {
   name: string;
-  fromGeneration: number;
-  toGeneration: number;
   message: string;
   category: string;
+  subcategory: string;
   time?: any;
   id?: string;
   timeBetween?: string;
@@ -14,10 +13,9 @@ export class PostModel {
 
    constructor(){
      this.name = "";
-     this.fromGeneration = 0;
-     this.toGeneration = 1990;
      this.message = '';
      this.category = '';
+     this.subcategory = '';
      this.time = null;
      this.id = '';
      this.timeBetween = '';

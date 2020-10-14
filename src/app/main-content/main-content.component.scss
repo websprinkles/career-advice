@@ -37,7 +37,7 @@ background: #4C6251;
   //background: #456361;
   .mat-list-item {
     color: white;
-    font: 500 24px/32px 'lateef';
+    font: 500 24px/32px 'lateef' 'oranienbaum';
   }
 }
 
@@ -89,21 +89,5 @@ background: #4C6251;
     color: #1E1E20;
     font-weight: bold;
     //border: 1px solid gray;
-  }
-  .write .mat-button {
-    background: #9DBDA1;
-    color: white;
-    width: 140px;
-    padding: 2px;
-    font-size: 16px;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: "inconsolata";
-    font-weight: bold;
-  }
-  .mat-icon {
-    vertical-align: baseline;
   }
 }

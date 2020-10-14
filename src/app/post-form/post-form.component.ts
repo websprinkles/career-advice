@@ -9,8 +9,8 @@ import { AuthService } from '../auth/auth.service';
 import { FirebaseUserModel } from '../entities/user.model';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { GenerationsTo, GenerationsFrom, Categories } from '../entities/filterConstants';
 import { NotificationService } from '../services/notification.service';
+import { Categories } from '../entities/filterConstants';
 
 @Component({
   selector: 'app-post-form',
@@ -23,13 +23,11 @@ export class PostFormComponent implements OnInit {
   user: FirebaseUserModel;
   displayDialog: boolean;
   inputForm: FormGroup;
-  generationsTo = GenerationsTo;
-  generationsFrom = GenerationsFrom;
-  selectedGenerationTo = 1980;
-  selectedGenerationFrom = 'Unknown';
 
   categories = Categories;
   selectedCategory = 'Unknown';
+  subcategories = Categories[this.selectedCategory]; //popravi
+  selectedSubcategory = 'Unknown';
   authSubscription: Subscription;
 
   constructor(
@@ -59,7 +57,7 @@ export class PostFormComponent implements OnInit {
   }
 
   resetForm() {
-    this.inputForm.reset({userId: 'null', name: 'Anonymous', fromGeneration: 'Unknown', toGeneration: 1980, message: '', category: 'Unknown'});
+    this.inputForm.reset({userId: 'null', name: 'Anonymous', message: '', category: 'Unknown', subcategory: 'Unknown'});
   }
 
   showDialog() {
@@ -75,10 +73,9 @@ export class PostFormComponent implements OnInit {
     this.inputForm = new FormGroup({
       userId: new FormControl('null', Validators.required),
       name: new FormControl('Anonymous', Validators.required),
-      fromGeneration: new FormControl('Unknown'),
-      toGeneration: new FormControl(1980, Validators.required),
       message: new FormControl('', Validators.required),
-      category: new FormControl('Unknown')
+      category: new FormControl('Unknown', Validators.required),
+      subcategory: new FormControl('Unknown', Validators.required)
     });
   }
 

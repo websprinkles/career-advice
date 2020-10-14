@@ -22,8 +22,8 @@ const routes: Routes = [
       { path: '', component: MainContentComponent}
     ]
   },
-  { path: '', redirectTo: '/home?filterTo=1980', pathMatch: 'full' }, // redirect to `first-component`
-  { path: '**', redirectTo: '/home?filterTo=1980' },  // Wildcard route for a 404 page
+  { path: '', redirectTo: '/home?category=Architecture and Engineering', pathMatch: 'full' }, // redirect to `first-component`
+  { path: '**', redirectTo: '/home?filterTo=Architecture and Engineering' },  // Wildcard route for a 404 page
 ];
 
 @NgModule({

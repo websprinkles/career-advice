@@ -25,9 +25,94 @@
   </mat-toolbar>
   <div class="filler"></div>
 
-  <router-outlet></router-outlet>
+  <p-dialog class="info" header="Contact Form" [(visible)]="displayDialog" [style]="{width: '50vw'}" [baseZIndex]="10000">
+    <form *ngIf="inputForm" [formGroup]="inputForm" class="form">
+      <ul>
+        <li>
+          <h6>If you have a message or a question for the creators of this site, regarding anything at all, do let us know! We will be happy to read it and contact you back if that is your wish.</h6>
+        </li>
+        <li>
+          <h6>Your Email:</h6>
+          <input pInputText id="email" class="form-control" type="email" formControlName="email" required
+            placeholder="Type Your Email Here"
+            maxlength="320"
+            />
+            <div [hidden]="email.valid || email.untouched">
+              <div *ngIf="email.errors && email.errors.required" class="error">
+                  Email is required
+              </div>
+              <div *ngIf="email.errors && email.errors.email" class="error">
+                  Email is invalid
+              </div>
+          </div>
+        </li>
+        <li>
+          <h6>Your message</h6>
+          <textarea id="message" class="form-control" formControlName="message" required placeholder="Type Your Message Here" maxlength="2000"></textarea>
+          <div [hidden]="message.valid || message.untouched">
+            <div *ngIf="message.errors && message.errors.required" class="error">
+                Message is required
+            </div>
+        </div>
+        </li>
+      </ul>
+    </form>
+    <ng-template pTemplate="footer">
+      <div #btncontainer  style="display:inline-block;position:relative">
+      <button pButton
+        icon="pi pi-check"
+        (click)="onSubmit();
+        displayDialog=false"
+        label="Yes"
+        class="p-button-text"
+        pTooltip="{{!inputForm.valid ? 'Before Submitting a Message You Must Fill All Required Fields' : ''}}"
+        [appendTo]="btncontainer"
+        [disabled]="!inputForm.valid"></button>
+      <button pButton icon="pi pi-times" (click)="displayDialog=false; resetForm()" label="Cancel" class="cancel"></button>
+    </div>
+    </ng-template>
 
-  <mat-toolbar class="example-footer">Footer</mat-toolbar>
+</p-dialog>
+
+<p-dialog class="info" header="Contact Form" [(visible)]="displayDialog2" [style]="{width: '50vw'}" [baseZIndex]="10000">
+  <div [hidden]="isLogged">
+    <h6>If you have a message or a question for the creators of this site, regarding anything at all, do let us know! Send a note to <b>throughthecodingglass@gmail.com</b>. We will be happy to read it and contact you back if that is your wish.
+      <br>
+      <br>
+    Timely Posts Team</h6>
+  </div>
+</p-dialog>
+
+<router-outlet></router-outlet>
+
+<div style="position: fixed; left: 50%; top: 20%;" class="modal-container">
+  <div style="position: relative; left: -50%; top: -20%;">
+    <router-outlet name='modal'></router-outlet>
+  </div>
+</div>
+
+<mat-toolbar class="example-footer">
+  <ul>
+    <li><a routerLink="/home/legal/terms">Terms of Services</a></li>
+    <li><a routerLink="/home/legal/privacy">Privacy Policy</a></li>
+    <li><a routerLink="/home/legal/cookies">Cookies Policy</a></li>
+    <li class="copyrights">© 2020 Timely Posts. All rights reserved.</li>
+  </ul>
+</mat-toolbar>
+<!-- <div class="footer">
+
+</div> -->
+
+
+<p-sidebar [(visible)]="!consentEnabled" [closeOnEscape]="false" [showCloseIcon]="false" [style]="{height:'3.5em'}" [dismissible]="false" position="bottom">
+<ul class="row center">
+  <li>By using this website you acknowledge that you have read, understood and give consent to our
+    <a routerLink="/home/legal/terms">Terms of Services</a>, <a routerLink="/home/legal/privacy">Privacy Policy</a> and <a routerLink="/home/legal/cookies">Cookies Policy</a>.
+  </li>
+  <li><button pButton class="transparent btn-border" (click)="saveConsent();" label="OK"></button></li>
+</ul>
+</p-sidebar>
+
 </ng-container>
 
 

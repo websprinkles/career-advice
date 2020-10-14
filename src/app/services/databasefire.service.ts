@@ -21,12 +21,11 @@ export class DatabasefireService {
       return this.db.collection('posts', ref => {return ref.orderBy('time', 'desc')}).valueChanges()
   }
 
-  getPostsByFilter(filterTo = null, filterFrom = null, category = null) {
+  getPostsByFilter(category = null, subcategory: null) {
     return this.db.collection('posts', ref => {
       let query : firebase.firestore.CollectionReference | firebase.firestore.Query = ref;
-      if (filterTo && filterTo !== 'Unknown') { query = query.where('toGeneration', '==', Number(filterTo)) };
-      if (filterFrom  && filterFrom !== 'Unknown') { query = query.where('fromGeneration', '==', Number(filterFrom)) };
       if (category  && category !== 'Unknown') { query = query.where('category', '==', category) };
+      if (subcategory  && subcategory !== 'Unknown') { query = query.where('subcategory', '==', subcategory) };
       return query;
     }).valueChanges({idField: 'id'}) // tale idfield lahko kasneje tudi izbrises..
   }
@@ -198,10 +197,9 @@ export class DatabasefireService {
       userId: post.userId,
       time: firebase.firestore.FieldValue.serverTimestamp(),
       name: post.name,
-      fromGeneration: post.fromGeneration,
-      toGeneration: post.toGeneration,
       message: post.message,
       category: post.category,
+      subcategory: post.subcategory,
       likedBy: []
     });
 

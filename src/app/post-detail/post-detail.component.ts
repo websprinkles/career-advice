@@ -76,14 +76,14 @@ export class PostDetailComponent implements OnInit {
     this.router.navigate(['/home'], { queryParams: this.homePageQueryParams});
   }
 
-  goToUserPage() {
+/*   goToUserPage() {
     if (this.user) {
       this.router.navigateByUrl('/home/user');
     } else {
       this.notificationService.showInfo('Not logged in', 'If you want to visit User Page, make sure you are logged in.');
     //  this.router.navigate([{outlets: {modal: 'login'}}], {queryParamsHandling: 'merge', relativeTo: this.activatedRoute.parent});
     }
-  }
+  } */
 
   resetForm() {
     this.inputForm.reset();

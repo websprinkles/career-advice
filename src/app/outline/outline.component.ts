@@ -9,7 +9,6 @@ import { filter} from 'rxjs/operators';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { DatabasefireService } from '../services/databasefire.service';
 import { Subscription } from 'rxjs';
-import { CategoriesMain } from '../entities/filterConstants';
 
 @Component({
   selector: 'app-outline',

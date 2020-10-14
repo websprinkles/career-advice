@@ -5,7 +5,7 @@ import { PostModel } from '../entities/post.model';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
 import { FilterParams } from '../entities/filterParams';
-import { Categories, CategoriesMain } from '../entities/filterConstants';
+import { Categories } from '../entities/filterConstants';
 
 @Component({
   selector: 'app-main-content',
@@ -14,9 +14,11 @@ import { Categories, CategoriesMain } from '../entities/filterConstants';
 })
 export class MainContentComponent implements OnInit {
 
-  categoriesMain = CategoriesMain;
+  selectedCategory = ['Architecture and Engineering']; //mat list sprejema select v array-u..
+  selectedSubcategory = 'bla';
 
-  selectedCategory = 'Unknown';
+  categories = Categories;
+  subcategories = Categories.find(x => x.value === this.selectedCategory[0]).children;
 
   displayModal = false;
   posts: PostModel[];
@@ -43,9 +45,16 @@ export class MainContentComponent implements OnInit {
   getPostsByFilter() {
     this.queryParamsSubscription = this.route.queryParams
       .subscribe(params => {
-        this.selectedCategory = params.category;
-        this.params = {filterTo: params.filterTo, filterFrom: params.filterFrom, category: params.category};
-        this.postsSubscription = this.databaseService.getPostsByFilter(params.filterTo, params.filterFrom, params.category)
+
+       if (params.category && this.selectedCategory !== params.category) {
+          this.subcategories = Categories.find(x => x.value === params.category).children;
+       }
+
+       this.selectedCategory = [params.category];
+       this.selectedSubcategory = params.subcategory;
+      this.params = {category: params.category, subcategory: params.subcategory};
+
+        this.postsSubscription = this.databaseService.getPostsByFilter(params.category, params.subcategory)
           .subscribe(x => {
             if (x) {
               this.posts = x as PostModel[];
@@ -56,17 +65,20 @@ export class MainContentComponent implements OnInit {
     );
   }
 
-  categoryChanged() {
-    this.router.navigate(['/home'], { queryParams: { category: this.selectedCategory }, queryParamsHandling: 'merge' });
-  }
-
   orderByDate() {
-    if (this.orderByTime) { //newest first
+    if (this.orderByTime) {
       this.posts = this.posts.filter(a => a.time).sort((a, b) => {return b.time.seconds - a.time.seconds});
-    } else { //order by likes
- //    this.backupPosts = JSON.parse(JSON.stringify(this.posts));
+    } else {
      this.posts = this.posts.filter(a => a.likedBy).sort((a, b) => {return b.likedBy.length - a.likedBy.length});
     }
+  }
+
+  selectCategory(category) {
+    this.router.navigate(['/home'], { queryParams: { category: category.value, subcategory: null }, queryParamsHandling: 'merge' });
+  }
+
+  selectSubcategory(subcategory) {
+    this.router.navigate(['/home'], { queryParams: { subcategory: subcategory.value }, queryParamsHandling: 'merge' });
   }
 
   selectPost(post) {

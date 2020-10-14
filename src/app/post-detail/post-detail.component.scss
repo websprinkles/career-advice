@@ -1,18 +1,50 @@
 ul.thirds {
-  border-top: 5px solid #eb4960;
   padding: 60px;
   padding-top: 0;
   //background: #27363B;
 }
 
-.first-third,
+/*.first-third,
 .second-third,
 .third-third {
   padding-top: 60px;
+} */
+
+.btn-border {
+  margin-top: 10px;
+  width: 160px;
+}
+.btn-border:not(.mat-button-disabled) {
+  //background: #1E1E20;
 }
 
 .second-third {
-  // background: #99B998;
+  flex: 2 2 auto;
+  background: beige;
+  background-image: linear-gradient(0deg, #9DBDA1 0%,#9DBDA1 50%, darksalmon 50%);
+  min-width: 660px;
+  border-radius: 4px;
+
+  .first, .second, .third {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  .first {
+    padding-top: 32px;
+    padding-bottom: 8px;
+  }
+
+  .second {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    text-align: right;
+  }
+
+  .third {
+    padding-top: 8px;
+    padding-bottom: 32px;
+  }
 }
 
 .row {
@@ -50,10 +82,6 @@ ul.thirds {
   flex: 1 1 0px;
 }
 
-.first {
-  margin-bottom: 10px;
-}
-
 .main-container {
   align-items: center;
 }
@@ -74,16 +102,6 @@ ul.thirds {
   justify-content: center;
 }
 
-.white {
-  color: #eb4960;
-  background: white;
-}
-
-.pink {
-  color: white;
-  background: #eb4960;
-}
-
 .first-third {
   text-align: right;
   padding-right: 70px;
@@ -100,7 +118,7 @@ ul.thirds {
   border-radius: 8px;
   margin-top: -20px;
   padding-top: 40px;
-  margin-bottom: 20px;
+  //margin-bottom: 20px;
   //background-image: linear-gradient(45deg, #27363B 0%, #27363B 20%, #EB4960 100%);
 }
 

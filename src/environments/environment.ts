@@ -5,14 +5,14 @@
 export const environment = {
   production: false,
   firebase: { // ko gre zares, loocis to od frontenda.. na firebasu naredis se en projekt in te settingse das v environments.rpod.ts
-    apiKey: "AIzaSyBgzJCvMPzGIXdZ6i8VQvJ1ykRRoQxV_Iw",
-    authDomain: "timelyposts.firebaseapp.com",
-    databaseURL: "https://timelyposts.firebaseio.com",
-    projectId: "timelyposts",
-    storageBucket: "timelyposts.appspot.com",
-    messagingSenderId: "1078712457230",
-    appId: "1:1078712457230:web:6c017d3f2aafd2b8fa445f",
-    measurementId: "G-1YWVZ9VZVW"
+    apiKey: "AIzaSyC_fHueRqqgz2gQIplboVcaFKuYN_yE47k",
+    authDomain: "career-advice-b7b66.firebaseapp.com",
+    databaseURL: "https://career-advice-b7b66.firebaseio.com",
+    projectId: "career-advice-b7b66",
+    storageBucket: "career-advice-b7b66.appspot.com",
+    messagingSenderId: "1081350654755",
+    appId: "1:1081350654755:web:c45fdb3ce7e3becf90da96",
+    measurementId: "G-EZ91LS51NF"
   }
 };
 

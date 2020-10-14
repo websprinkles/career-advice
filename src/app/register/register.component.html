@@ -17,7 +17,7 @@
             <label class="error">{{errorMessage}}</label>
             <label class="success">{{successMessage}}</label>
           </div>
-          <button type="submit" (click)="tryRegister(registerForm.value)" class="btn btn-default">Register</button>
+          <button mat-button type="submit" (click)="tryRegister(registerForm.value)" class="login-btn">Register</button>
         </form>
       </div>
     </div>
@@ -28,14 +28,15 @@
         <li class="border-top"></li>
       </ul>
     </div>
-    <div class="row">
+<!--     <div class="row">
       <div class="col4">
         <button type="button" pButton class="transparent fb" (click)="tryFacebookLogin()" icon="fa fa-facebook" label="Register with Facebook"></button>
       </div>
-    </div>
+    </div> -->
     <div class="row">
       <div class="col4">
-        <button type="button" pButton class="transparent google" (click)="tryGoogleLogin()" icon="pi pi-google" label="Register with Google"></button>
+        <button type="button" mat-button class="login-btn google-login" (click)="tryGoogleLogin()">
+          <mat-icon fontSet="pi" fontIcon="pi-google"></mat-icon> Register with Google</button>
       </div>
     </div>
     <div class="row small-font">
@@ -51,7 +52,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="col4">
+      <div class="col4 no-account">
         <p>Already have an account? <a [routerLink]="['/home', {outlets: {modal: ['login']}}]" queryParamsHandling="merge">
           Login
         </a></p>

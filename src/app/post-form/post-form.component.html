@@ -1,4 +1,4 @@
-<button pButton (click)="showDialog()" class="basic" icon="pi pi-external-link" label="+ Add a note"></button>
+<button mat-button class="primary-btn" (click)="showDialog()"><mat-icon fontSet="fa" fontIcon="fa-plus"></mat-icon>Add advice</button>
 <p-dialog header="Message" [(visible)]="displayDialog" class="rainbow" [style]="{width: '50vw'}" [baseZIndex]="10000">
   <form *ngIf="inputForm" [formGroup]="inputForm" class="form">
 
@@ -10,22 +10,17 @@
         </div>
       </li>
       <li>
-        <h6>Category of Your Message (optional)</h6>
+        <h6>Category of Your Message (required)</h6>
         <p-dropdown class="form-dropdown" [options]="categories" [style]="{ width: '100%' }"
           formControlName="category"></p-dropdown>
       </li>
       <li>
-        <h6>I have a message for the generation born in (required)</h6>
-        <p-dropdown class="form-dropdown" [options]="generationsTo" [style]="{ width: '100%' }"
-          formControlName="toGeneration"></p-dropdown>
+        <h6>Subcategory of Your Message (required)</h6>
+        <p-dropdown class="form-dropdown" [options]="categories" [style]="{ width: '100%' }"
+          formControlName="subcategory"></p-dropdown>
       </li>
       <li>
-        <h6>I belong to the generation born in (optional)</h6>
-        <p-dropdown class="form-dropdown" [options]="generationsFrom" [style]="{ width: '100%' }"
-          formControlName="fromGeneration"></p-dropdown>
-      </li>
-      <li>
-        <h6>Your message (required)</h6>
+        <h6>Your advice (required)</h6>
         <textarea formControlName="message" required placeholder="Type Your Message Here" maxlength="350"></textarea>
       </li>
     </ul>
