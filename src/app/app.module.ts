@@ -87,6 +87,7 @@ import {OverlayPanelModule} from 'primeng/overlaypanel';
 import {SidebarModule} from 'primeng/sidebar';
 import { LegalComponent } from './legal/legal.component';
 import {CheckboxModule} from 'primeng/checkbox';
+import {AutoCompleteModule} from 'primeng/autocomplete';
 
 @NgModule({
   declarations: [
@@ -112,6 +113,7 @@ import {CheckboxModule} from 'primeng/checkbox';
     AngularFireAuthModule, // auth
     AngularFireStorageModule, // storage
     AngularFireDatabaseModule,
+    AutoCompleteModule,
     ReactiveFormsModule,
     MessageModule,
     MessagesModule,

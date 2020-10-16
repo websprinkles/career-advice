@@ -1,89 +1,162 @@
 export const Categories = [
-  {label: 'Not selected', value: 'Unknown',
-    children: [{label: 'nnn', value: 'bla'}, {label: 'nnn', value: 'la'}]},
-  {label: 'Architecture and Engineering', value: 'Architecture and Engineering',
-    children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]},
-  {label: 'Arts and Design', value: 'Arts and Design', children: [{label: 'nnn', value: 'bla'}, {label: 'iiii', value: 'la'}]},
-  {label: 'Building and Grounds Cleaning', value: 'Building and Grounds Cleaning', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]},
-  {label: 'Business and Financial', value: 'Business and Financial', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]},
-  {label: 'Community and Social Service', value: 'Community and Social Service', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]},
-  {label: 'Computer and Information Technology', value: 'Computer and Information Technology', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]},
-  {label: 'Construction and Extraction', value: 'Construction and Extraction', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]},
-  {label: 'Education, Training, and Library', value: 'Education, Training, and Library', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]},
-  {label: 'Entertainment and Sports', value: 'Entertainment and Sports', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]},
-  {label: 'Farming, Fishing, and Forestry', value: 'Farming, Fishing, and Forestry', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]},
-  {label: 'Food Preparation and Serving', value: 'Food Preparation and Serving', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]},
-  {label: 'Healthcare', value: 'Healthcare', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]},
-  {label: 'Installation, Maintenance, and Repair', value: 'Installation, Maintenance, and Repair', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]},
-  {label: 'Legal', value: 'Legal', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]},
-  {label: 'Life, Physical, and Social Science', value: 'Life, Physical, and Social Science', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]},
-  {label: 'Management', value: 'Management', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]},
-  {label: 'Math', value: 'Math', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]},
-  {label: 'Media and Communication', value: 'Media and Communication', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]},
-  {label: 'Military', value: 'Military', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]},
-  {label: 'Office and Administration', value: 'Office and Administration', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]},
-  {label: 'Personal Care and Service', value: 'Personal Care and Service', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]},
-  {label: 'Production', value: 'Production', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]},
-  {label: 'Protective Service', value: 'Protective Service', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]},
-  {label: 'Sales', value: 'Sales', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]},
-  {label: 'Transportation and Material Moving', value: 'Transportation and Material Moving', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]},
+  {
+    label: 'Natural and Physical Science', value: 0,
+    children: [
+      { label: 'Mathematics and Statistics', value: 0 },
+      { label: 'Physics and Astronomy', value: 1 },
+      { label: 'Chemistry', value: 2 },
+      { label: 'Geology and Earth Sciences', value: 3 },
+      { label: 'Biological Sciences', value: 4 },
+      { label: 'Medical Science', value: 5 },
+      { label: 'Pharmacology and Biotechnology', value: 6 },
+      { label: 'Other', value: -1 }
+    ]
+  },
+  {
+    label: 'Information Technology', value: 1,
+    children: [
+      { label: 'Computer Science and Operating Systems', value: 0 },
+      { label: 'Information Systems and Databases', value: 1 },
+      { label: 'Programming', value: 2 },
+      { label: 'Algorithms and Data Structures', value: 3 },
+      { label: 'Networks and Communications', value: 4 },
+      { label: 'Other', value: -1 }
+    ]
+  },
+  {
+    label: 'Engineering and Arhitecture', value: 2,
+    children: [
+      { label: 'Manufacturing', value: 0 },
+      { label: 'Process and Resources Engineering', value: 1 },
+      { label: 'Automotive', value: 2 },
+      { label: 'Mechanical and Industrial Engineering', value: 3 },
+      { label: 'Civil Engineering', value: 4 },
+      { label: 'Surveying and Mapping', value: 5 },
+      { label: 'Electrics and Electronics', value: 6 },
+      { label: 'Maritime Engineering', value: 7 },
+      { label: 'Arhitecture and Building', value: 8 },
+      { label: 'Other', value: -1 },
+    ]
+  },
+  {
+    label: 'Agriculture and Environment', value: 3,
+    children: [
+      { label: 'Agriculture', value: 0 },
+      { label: 'Horticulture and Viticulture', value: 1 },
+      { label: 'Forestry', value: 2 },
+      { label: 'Fisheries and Aquaculture', value: 3 },
+      { label: 'Land, Parks and Wildlife Management', value: 4 },
+      { label: 'Environmental Studies', value: 5 },
+      { label: 'Other', value: -1 },
+    ]
+  },
+  {
+    label: 'Health and Healthcare', value: 4,
+    children: [
+      { label: 'Medicine and Medical Studies', value: 0 },
+      { label: 'Nursing', value: 1 },
+      { label: 'Pharmacy', value: 2 },
+      { label: 'Dental Studies', value: 3 },
+      { label: 'Optical Science', value: 4 },
+      { label: 'Veterinary Studies', value: 5 },
+      { label: 'Public Health', value: 6 },
+      { label: 'Radiography', value: 7 },
+      { label: 'Complementary Therapies', value: 8 },
+      { label: 'Rehabilitation Therapies', value: 9 },
+      { label: 'Other', value: -1 },
+    ]
+  },
+  {
+    label: 'Education and Library', value: 5,
+    children: [
+      { label: 'Teaching', value: 0 },
+      { label: 'Curriculum and Education Studies', value: 1 },
+      { label: 'Library, Archive and related', value: 2 },
+      { label: 'Supporting Studies', value: 3 },
+      { label: 'Other', value: -1 },
+    ]
+  },
+  {
+    label: 'Management And Commerce', value: 6,
+    children: [
+      { label: 'Accounting', value: 0 },
+      { label: 'Business and Management', value: 1 },
+      { label: 'Sales and Marketing', value: 2 },
+      { label: 'Office and Administration', value: 3 },
+      { label: 'Banking, Finance and Related Fields', value: 4 },
+      { label: 'Economics and Econometrics', value: 5 },
+      { label: 'Other', value: -1 },
+    ]
+  },
+  {
+    label: 'Law and Protection', value: 7,
+    children: [
+      { label: 'Law and Legal Practice', value: 0 },
+      { label: 'Police and Law Enforcement', value: 1 },
+      { label: 'Military', value: 2 },
+      { label: 'Justice Administration', value: 3 },
+      { label: 'Criminology', value: 4 },
+      { label: 'Security and Protective Services', value: 5 },
+      { label: 'Other', value: -1 },
+    ]
+  },
+  {
+    label: 'Society and Culture', value: 8,
+    children: [
+      { label: 'Politics and Political Science', value: 0 },
+      { label: 'Studies in Human Society', value: 1 },
+      { label: 'Social Services and Welfare', value: 2 },
+      { label: 'Behavioural Science', value: 3 },
+      { label: 'Language and Literature', value: 4 },
+      { label: 'Philosophy and Religion', value: 5 },
+      { label: 'Other', value: -1 },
+    ]
+  },
+  {
+    label: 'Arts, Media, Sports', value: 9,
+    children: [
+      { label: 'Communication and Media', value: 0 },
+      { label: 'Sport and Recreation', value: 1 },
+      { label: 'Performing Arts', value: 2 },
+      { label: 'Visual Arts and Crafts', value: 3 },
+      { label: 'Graphic and Design', value: 4 },
+      { label: 'Other', value: -1 },
+    ]
+  },
+  {
+    label: 'Hospitaly, Personal Care and Service', value: 10,
+    children: [
+      { label: 'Food and Serving', value: 0 },
+      { label: 'Personal Appearance', value: 1 },
+      { label: 'Tourism and Travel', value: 2 },
+      { label: 'Leisure And Entertainment', value: 3 },
+      { label: 'Other', value: -1 },
+    ]
+  },
+  {
+    label: 'Construction and Extraction', value: 11,
+    children: [
+      { label: 'Construction', value: 0 },
+      { label: 'Extraction', value: 1 },
+      { label: 'Supervisors', value: 2 },
+      { label: 'Helpers', value: 3 },
+      { label: 'Other', value: -1 },
+    ]
+  },
+  {
+    label: 'Installation, Maintenance and Repair', value: 12,
+    children: [
+      { label: 'Electrical/Electronic', value: 0 },
+      { label: 'Heavy and Industrial Equipment', value: 1 },
+      { label: 'Vehicle', value: 2 },
+      { label: 'Mobile', value: 3 },
+      { label: 'Supervisors', value: 4 },
+      { label: 'Other', value: -1 },
+    ]
+  },
+  {
+    label: 'Other', value: -1,
+    children: [{ label: 'Other', value: -1 }]
+  }
 ];
 
-/* export const Subcategories = {
-  'Unknown': [],
-  'Architecture and Engineering': [{label: 'aaaaa', value: 'aaaaa', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'bbb', value: 'bbbbb', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'c', value: 'ccccc'}],
-  'Arts and Design': [{label: 'ooooo', value: 'oooo', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'la', value: 'la', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'a', value: 'a'}],
-  'Building and Grounds Cleaning':  [{label: 'bla', value: 'bla', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'la', value: 'la', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'a', value: 'a'}],
-  'Business and Financial':  [{label: 'bla', value: 'bla', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'la', value: 'la', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'a', value: 'a'}],
-  'Community and Social Service':  [{label: 'bla', value: 'bla', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'la', value: 'la', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'a', value: 'a'}],
-  'Computer and Information Technology':  [{label: 'bla', value: 'bla', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'la', value: 'la', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'a', value: 'a'}],
-  'Construction and Extraction':  [{label: 'bla', value: 'bla', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'la', value: 'la', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'a', value: 'a'}],
-  'Education, Training, and Library': [{label: 'bla', value: 'bla', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'la', value: 'la', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'a', value: 'a'}],
-  'Entertainment and Sports': [{label: 'bla', value: 'bla', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'la', value: 'la', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'a', value: 'a'}],
-  'Farming, Fishing, and Forestry': [{label: 'bla', value: 'bla', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'la', value: 'la', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'a', value: 'a'}],
-  'Food Preparation and Serving': [{label: 'bla', value: 'bla', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'la', value: 'la', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'a', value: 'a'}],
-  'Healthcare': [{label: 'bla', value: 'bla', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'la', value: 'la', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'a', value: 'a'}],
-  'Installation, Maintenance, and Repair': [{label: 'bla', value: 'bla', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'la', value: 'la', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'a', value: 'a'}],
-  'Legal': [{label: 'bla', value: 'bla', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'la', value: 'la', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'a', value: 'a'}],
-  'Life, Physical, and Social Science': [{label: 'bla', value: 'bla', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'la', value: 'la', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'a', value: 'a'}],
-  'Management': [{label: 'bla', value: 'bla', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'la', value: 'la', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'a', value: 'a'}],
-  'Math': [{label: 'bla', value: 'bla', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'la', value: 'la', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'a', value: 'a'}],
-  'Media and Communication': [{label: 'bla', value: 'bla', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'la', value: 'la', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'a', value: 'a'}],
-  'Military': [{label: 'bla', value: 'bla', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'la', value: 'la', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'a', value: 'a'}],
-  'Office and Administration': [{label: 'bla', value: 'bla', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'la', value: 'la', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'a', value: 'a'}],
-  'Personal Care and Service': [{label: 'bla', value: 'bla', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'la', value: 'la', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'a', value: 'a'}],
-  'Production': [{label: 'bla', value: 'bla', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'la', value: 'la', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'a', value: 'a'}],
-  'Protective Service': [{label: 'bla', value: 'bla', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'la', value: 'la', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'a', value: 'a'}],
-  'Sales': [{label: 'bla', value: 'bla', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'la', value: 'la', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'a', value: 'a'}],
-  'Transportation and Material Moving': [{label: 'bla', value: 'bla', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'la', value: 'la', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]}, {label: 'a', value: 'a'}]
-}; */
-
-
-/* export const Subategories = [
-  {label: 'Not selected', value: 'Unknown', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]},
-  {label: 'Architecture and Engineering', value: 'Architecture and Engineering', children: [{label: 'bla', value: 'bla'}, {label: 'bla', value: 'la'}]},
-  'Arts and Design',
-  'Building and Grounds Cleaning',
-  'Business and Financial',
-  'Community and Social Service',
-  'Computer and Information Technology',
-  'Construction and Extraction',
-  'Education, Training, and Library',
-  'Entertainment and Sports',
-  'Farming, Fishing, and Forestry',
-  'Food Preparation and Serving',
-  'Healthcare',
-  'Installation, Maintenance, and Repair',
-  'Legal',
-  'Life, Physical, and Social Science',
-  'Management',
-  'Math',
-  'Media and Communication',
-  'Military',
-  'Office and Administration',
-  'Personal Care and Service',
-  'Production',
-  'Protective Service',
-  'Sales',
-  'Transportation and Material Moving'
-]; */

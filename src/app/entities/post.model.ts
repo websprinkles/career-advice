@@ -1,8 +1,9 @@
 export class PostModel {
   name: string;
+  jobTitle: string;
   message: string;
-  category: string;
-  subcategory: string;
+  category: number;
+  subcategory: number;
   time?: any;
   id?: string;
   timeBetween?: string;
@@ -13,9 +14,10 @@ export class PostModel {
 
    constructor(){
      this.name = "";
+     this.jobTitle = '';
      this.message = '';
-     this.category = '';
-     this.subcategory = '';
+     this.category = null;
+     this.subcategory = null;
      this.time = null;
      this.id = '';
      this.timeBetween = '';

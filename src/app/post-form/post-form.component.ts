@@ -24,10 +24,10 @@ export class PostFormComponent implements OnInit {
   displayDialog: boolean;
   inputForm: FormGroup;
 
+  selectedCategory = -1;
+  selectedSubcategory = -1;
   categories = Categories;
-  selectedCategory = 'Unknown';
-  subcategories = Categories[this.selectedCategory]; //popravi
-  selectedSubcategory = 'Unknown';
+  subcategories = Categories.find(x => x.value === this.selectedCategory)?.children;
   authSubscription: Subscription;
 
   constructor(
@@ -44,6 +44,7 @@ export class PostFormComponent implements OnInit {
 
   get name() { return this.inputForm.get('name'); }
   get message() { return this.inputForm.get('message'); }
+  get category() { return this.inputForm.get('category'); }
 
   onSubmit() {
     this.databaseService.addPost(this.inputForm.value).then(res => {
@@ -57,7 +58,11 @@ export class PostFormComponent implements OnInit {
   }
 
   resetForm() {
-    this.inputForm.reset({userId: 'null', name: 'Anonymous', message: '', category: 'Unknown', subcategory: 'Unknown'});
+    this.inputForm.reset({userId: 'null', name: 'Anonymous', jobTitle: '', message: '', category: -1, subcategory: -1});
+  }
+
+  setSubcategories(category) {
+    this.subcategories = Categories.find(x => x.value === category)?.children;
   }
 
   showDialog() {
@@ -73,9 +78,10 @@ export class PostFormComponent implements OnInit {
     this.inputForm = new FormGroup({
       userId: new FormControl('null', Validators.required),
       name: new FormControl('Anonymous', Validators.required),
+      jobTitle: new FormControl('', Validators.required),
       message: new FormControl('', Validators.required),
-      category: new FormControl('Unknown', Validators.required),
-      subcategory: new FormControl('Unknown', Validators.required)
+      category: new FormControl(-1, Validators.required),
+      subcategory: new FormControl(-1, Validators.required)
     });
   }
 

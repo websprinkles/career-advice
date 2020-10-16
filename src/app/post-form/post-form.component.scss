@@ -1,12 +1,12 @@
 h6 {
-  color: white !important;
+  color: #27363B !important;
   font-size: 16px;
-  margin-bottom: 5px;
-  font-family: 'oranienbaum';
+  //margin-bottom: 5px;
+  font-family: "inconsolata";
 }
 
 li {
-  padding: 15px;
+  //padding: 15px;
  // background-color: #27363B
 }
 
@@ -57,9 +57,13 @@ textarea, input {
   border: none;
   font-size: 1rem;
   padding: 7px;
-  font-family: 'oranienbaum';
+  font-family: "inconsolata";
 }
 
 textarea {
-  height: 150px;
+  height: 500px;
+}
+
+.row {
+  align-items: flex-end;
 }

@@ -21,13 +21,14 @@ export class DatabasefireService {
       return this.db.collection('posts', ref => {return ref.orderBy('time', 'desc')}).valueChanges()
   }
 
-  getPostsByFilter(category = null, subcategory: null) {
+  getPostsByFilter(category = null, subcategory = null, jobTitle = null) {
     return this.db.collection('posts', ref => {
       let query : firebase.firestore.CollectionReference | firebase.firestore.Query = ref;
-      if (category  && category !== 'Unknown') { query = query.where('category', '==', category) };
-      if (subcategory  && subcategory !== 'Unknown') { query = query.where('subcategory', '==', subcategory) };
+      //if (jobTitle) { query = query.where('jobTitle', '==', jobTitle) };
+      if (category && category !== -1) { query = query.where('category', '==', Number(category)) };
+      if (subcategory  && subcategory !== -1) { query = query.where('subcategory', '==', Number(subcategory)) };
       return query;
-    }).valueChanges({idField: 'id'}) // tale idfield lahko kasneje tudi izbrises..
+    }).valueChanges()
   }
 
   getPostsOrderedByLikes(){
@@ -197,6 +198,7 @@ export class DatabasefireService {
       userId: post.userId,
       time: firebase.firestore.FieldValue.serverTimestamp(),
       name: post.name,
+      jobTitle: post.jobTitle,
       message: post.message,
       category: post.category,
       subcategory: post.subcategory,

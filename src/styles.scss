@@ -71,6 +71,79 @@ ul {
   align-items: center;
 }
 
+.p-autocomplete input {
+ // background: var(--theme-color-primary-background) url(./../../assets/GUI/16px_search@1x.svg) no-repeat 9px center;
+  border: none;
+  padding: 15px;
+//  width: 15px;
+  border-radius: 4px;
+  -webkit-transition: all .5s;
+  -moz-transition: all .5s;
+  transition: all .5s;
+  -webkit-box-sizing: content-box;
+  -webkit-appearance: textfield;
+  outline: none;
+  cursor: pointer;
+  z-index: 5;
+  margin-right: 20px;
+  //background: bisque;
+  //background: bisque;
+  background: #D1E4D1;
+  width: 100%;
+}
+
+.search .p-autocomplete,
+.search,
+.search.filled {
+  width: 100%;
+  -webkit-transition: all .5s;
+  -moz-transition: all .5s;
+  transition: all .5s;
+}
+
+.search {
+  .p-inputtext {
+    font-family: "inconsolata";
+    color: #1E1E20 !important;
+    font-weight: bold;
+  }
+  ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #1E1E20;
+    opacity: 1; /* Firefox */
+  }
+
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #1E1E20;
+  }
+
+  ::-ms-input-placeholder { /* Microsoft Edge */
+    color: #1E1E20;
+  }
+}
+
+.p-autocomplete .pi-spinner {
+  display: none;
+}
+
+.filled .p-autocomplete input {
+ // width: 150px;
+  padding-left: 32px;
+  color: #1E1E20;
+  //background-color: #fff;
+  cursor: auto;
+  width: 100%;
+}
+
+.p-autocomplete input:focus {
+  //width: 100%;
+ // background-color: darksalmon;
+ background: antiquewhite;
+ // border-color: lightgray;
+  padding-left: 32px;
+  cursor: auto;
+  box-shadow: none;
+}
+
 .mat-button.login-btn,
 .login-btn .p-togglebutton.p-button,
 .login-btn .p-togglebutton.p-button.p-highlight {
@@ -85,13 +158,13 @@ ul {
   font-family: 'inconsolata';
   font-weight: bold;
   font-size: 1.3rem;
-  margin-top: 20px;
 }
 
 .password .p-togglebutton.p-button,
 .password .p-togglebutton.p-button.p-highlight {
   color: white;
   background: cadetblue;
+  margin-top: 10px;
 }
 
 .mat-button.google-login {
@@ -112,7 +185,8 @@ ul {
   background: #9DBDA1;
   color: white;
   width: 140px;
-  padding: 2px;
+  //padding: 2px;
+  padding: 5px;
   font-size: 16px;
   font-weight: bold;
   display: flex;
@@ -264,9 +338,10 @@ ul {
   .p-inputtext {
       font-size: 18px;
       font-weight: bold;
-      font-family: 'oranienbaum';
+      font-family: "inconsolata";
   }
 }
+
 
 .primary-dropdown .p-dropdown {
     background-color: white !important;
@@ -316,31 +391,34 @@ ul {
   .p-button.p-button-text {
     font-family: inherit;
     background-color: white;
-    color: #EB4960;
+    color: #27363B;
   }
   .p-dialog-header, .p-dialog-footer {
-    background-color: #27363B;
-    color: #EB4960;
+    color: white;
     border: none;
-    font-family: 'pacifico';
+    font-family: "inconsolata";
     .p-dialog-title {
       font-weight: 1000;
       font-size: 1.4rem;
     }
   }
   .p-dialog-header {
+    background-color: darksalmon;
     border-bottom: 3px dotted white;
   }
   .p-dialog-footer {
     border-top: 3px dotted white;
+    background: #9DBDA1;
   }
   .p-dialog-content {
     padding: 0;
-    font-family: 'oranienbaum';
-    background-image: linear-gradient(45deg, #27363B 0%, #27363B 20%, #EB4960 20%, #EB4960 40%, #F4837D 40%, #F4837D 60%, #FDCEAA 60%, #FDCEAA 80%, #99B998 80%, #99B998 100%) !important;
+    font-family: "inconsolata";
+    background: #9DBDA1;
+    padding: 15px;
+  //  background-image: linear-gradient(45deg, #27363B 0%, #27363B 20%, #EB4960 20%, #EB4960 40%, #F4837D 40%, #F4837D 60%, #FDCEAA 60%, #FDCEAA 80%, #99B998 80%, #99B998 100%) !important;
   }
   .p-inputtext {
-    font-family: 'oranienbaum';
+    font-family: "inconsolata";
   }
 }
 
@@ -353,22 +431,22 @@ ul {
     border: none;
     font-size: 1rem;
     padding: 7px;
-    font-family: 'oranienbaum';
+    font-family: "inconsolata";
   }
 
   textarea {
     height: 150px;
   }
   .p-button.p-button-text {
-    font-family: 'oranienbaum';
+    font-family: "inconsolata";
     background-color: white;
-    color: #27363B;
+    color: #1E1E20;
   }
   .p-dialog-header, .p-dialog-footer {
-    background-color: #27363B;
-    color: #27363B;
+    background-color: #1E1E20;
+    color: #1E1E20;
     border: none;
-    font-family: 'oranienbaum';
+    font-family: "inconsolata";
     .p-dialog-title {
       font-weight: 1000;
       font-size: 1.4rem;
@@ -383,11 +461,11 @@ ul {
   }
   .p-dialog-content {
     padding: 1rem;
-    font-family: 'oranienbaum';
-    background: #27363B;
+    font-family: "inconsolata";
+    background: #1E1E20;
   }
   .p-inputtext {
-    font-family: 'oranienbaum';
+    font-family: "inconsolata";
   }
 
   h6 {

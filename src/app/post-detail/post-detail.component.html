@@ -30,7 +30,10 @@
 
       <div class="section third">
         <p-toggleButton [(ngModel)]="viewComments" class="basic-btn basic-dark-btn" offLabel="View Comments" onLabel="Hide Comments" offIcon="pi pi-plus" onIcon="pi pi-minus"></p-toggleButton>
-        <div *ngIf="viewComments && comments" class="collapsable">
+        <div *ngIf="viewComments && (!comments || !comments.length)" class="collapsable">
+          There are no comments yet.
+        </div>
+        <div *ngIf="viewComments && comments && comments.length" class="collapsable">
           <ul>
             <li *ngFor="let comment of comments;">
               <app-comment [comment]="comment"></app-comment>
