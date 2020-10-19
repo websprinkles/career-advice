@@ -14,23 +14,26 @@
         </div>
       </li>
       <li>
-        <h6>Job Title (required)</h6>
-        <input pInputText placeholder="Enter your job title here." required formControlName="jobTitle" maxlength="100"/>
-      </li>
-      <li>
-        <h6>Category (required)</h6>
+        <h6>Category*</h6>
         <p-dropdown class="form-dropdown" [options]="categories" (onChange)="setSubcategories(category.value)"
           [style]="{ width: '100%' }" formControlName="category"></p-dropdown>
       </li>
       <li>
-        <h6>Subcategory (required)</h6>
+        <h6>Subcategory*</h6>
         <p-dropdown class="form-dropdown" [options]="subcategories" [style]="{ width: '100%' }"
           formControlName="subcategory"></p-dropdown>
       </li>
+      <li>
+        <h6>Job Title*</h6>
+        <input pInputText placeholder="Enter your job title" required formControlName="jobTitle" maxlength="100"/>
+      </li>
     </ul>
     <div>
-      <h6>Your advice (required)</h6>
+      <h6>Your advice*</h6>
       <textarea formControlName="message" required placeholder="Enter Your Advice Here" maxlength="3500"></textarea>
+    </div>
+    <div>
+      <h4>* = Required</h4>
     </div>
   </form>
 

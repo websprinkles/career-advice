@@ -62,18 +62,10 @@ export class MainContentComponent implements OnInit {
 
         this.params = {category: params.category, subcategory: params.subcategory, jobTitle: params.jobTitle};
 
-/*         this.postsSubscription = this.databaseService.getPostsByFilter(params.category, params.subcategory, params.jobTitle)
-          .subscribe(x => {
-            if (x) {
-              this.posts = (x as PostModel[]).filter(x => x.jobTitle === params.jobTitle);
-            //  this.orderByDate();
-            }
-        }); */
         this.postsSubscription = this.databaseService.getPosts()
           .subscribe(x => {
             if (x) {
               if (params.jobTitle) {
-               // this.posts = (x as PostModel[]).filter(x => x.jobTitle === params.jobTitle);
                 this.posts = this.filterByTitle(params.jobTitle, x as PostModel[]);
               } else if (params.category && params.subcategory) {
                 this.posts = (x as PostModel[]).filter(x => x.category === Number(params.category) && x.subcategory === Number(params.subcategory));
@@ -88,42 +80,37 @@ export class MainContentComponent implements OnInit {
     );
   }
 
-/*   orderByDate() {
-    if (this.orderByTime) {
-      this.posts = this.posts.filter(a => a.time).sort((a, b) => {return b.time.seconds - a.time.seconds});
-    } else {
-     this.posts = this.posts.filter(a => a.likedBy).sort((a, b) => {return b.likedBy.length - a.likedBy.length});
-    }
-  } */
 
   navigate(event) {
     console.log(event);
-    if (this.posts?.length === 0 && !event.query) {
-      console.log('navigating');
+    this.router.navigate(['/home'], { queryParams: { jobTitle: '' }});
+/*     if (this.posts?.length === 0 && !event.query) {
      this.router.navigate(['/home'], { queryParams: { category: 0, subcategory: null}});
-     //this.router.navigate(['/home'], { queryParams: { jobTitle: '' }});
-    }
+    } */
   }
 
 
   filterByTitle(query, posts) {
     //in a real application, make a request to a remote url with the query and return filtered results, for demo we filter at client side
-    let filtered : any[] = [];
+    let filtered: any[] = [];
+    let jobTitles: string[] = [];
    // let query = event.query;
     for(let i = 0; i < posts?.length; i++) {
         let post = posts[i];
         if (post.jobTitle.toLowerCase().indexOf(query.toLowerCase()) == 0) {
             filtered.push(post);
+            if (!jobTitles.includes(post.jobTitle.toLowerCase())) {
+              jobTitles.push(post.jobTitle.toLowerCase());
+            }
         }
     }
-    this.filteredJobTitles = filtered;
 
+    this.filteredJobTitles = jobTitles;
     return filtered;
   }
 
   selectCategory(options, category) {
     //console.log(options[0]?.value);
-    console.log(this.selectedJobTitle);
     let jobTitleExists = !!(this.selectedJobTitle || this.selectedJobTitle === '');
     this.router.navigate(['/home'], { queryParams: { category: category.value, subcategory: null }, queryParamsHandling: jobTitleExists? null : 'merge' });
   }
@@ -137,9 +124,9 @@ export class MainContentComponent implements OnInit {
   }
 
   filterJobTitle(event) {
-    //console.log(event.query);
-    console.log(event);
-    this.router.navigate(['/home'], { queryParams: { jobTitle: event.query || event.jobTitle }});
+    let params = event.query || event.jobTitle || event;
+    //console.log(params);
+    this.router.navigate(['/home'], { queryParams: { jobTitle: params }});
   }
 
   selectPost(post) {

@@ -1,7 +1,7 @@
 .main-content {
   display: flex;
   //background: darkseagreen;
-  margin: 0px 90px;
+  margin: 0px 144px;
 }
 
 .left, .right {
@@ -12,7 +12,7 @@
   padding: 0px 72px;
   //padding-top: 72px;
   //padding-left: 0px;
-  flex-basis: 65%;
+  flex-basis: 70%;
   padding-right: 0px;
 }
 
@@ -23,10 +23,11 @@
 .left {
  // display: flex; //fix
 //  flex-basis: 35%;
-flex-basis: 35%;
+flex-basis: 30%;
   padding-top: 24px;
   //background: #456361;
 background: #4C6251;
+border-radius: 4px;
 }
 
 .mat-list-base {
@@ -93,14 +94,24 @@ background: #4C6251;
 
 .search-results {
   font-family: "oswald";
-  margin-top: 30px;
+  margin-top: 15px;
+  //padding-right: 16px;
+//  border-left: 4px solid indianred;
   margin-bottom: 15px;
-  padding: 28px;
   color: #1E1E20;
-  font-weight: bold;
-  border-radius: 4px;
-  border-left: 6px solid darkslategray;
-  background: linear-gradient(90deg, beige, transparent);
+  //: white;
+  em {
+  background: cadetblue;
+  color: white;
+  //font-weight: bold;
+  //border-radius: 4px;
+//  border-left: 4px solid #1E1E20;
+  display: inline-block;
+  padding: 0 16px;
+  margin: 0 16px;
+  border-radius: 16px;
+  }
+  //background: linear-gradient(90deg, beige, transparent);
 }
 
 .toolbar {

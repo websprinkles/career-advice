@@ -34,5 +34,20 @@ div, .mat-card {
  //fix color: white;
 //fix  background: #574946;
   font-weight: 600;
-  display: inline-block;
+ // display: inline-block;
+}
+
+.mat-card-title {
+  font-size: 15px;
+  font-weight: 600;
+  font-family: 'oswald';
+}
+
+.mat-card-content {
+  white-space: pre-wrap;
+}
+
+.mat-card-actions, .mat-card-subtitle {
+  display: flex;
+  justify-content: space-between;
 }

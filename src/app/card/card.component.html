@@ -1,16 +1,26 @@
 <div *ngIf="post">
   <mat-card>
-    <!-- <mat-card-title>Some title</mat-card-title> -->
-    <mat-card-subtitle>{{post.time?.toDate() | date:'medium'}}</mat-card-subtitle>
+    <mat-card-subtitle>
+      <div class="job-title">
+        {{post.jobTitle | uppercase}}
+      </div>
+<!--       <div class="blue">
+        Never give up
+      </div> -->
+      <div class="gray">
+        {{post.time?.toDate() | date:'mediumDate'}}
+      </div>
+    </mat-card-subtitle>
+    <mat-card-title>{{'Never give up' | uppercase}}</mat-card-title>
     <mat-card-content>{{post.message}}</mat-card-content>
     <mat-card-actions>
       <div  [hidden]="!likedByUser">
-        <button mat-button (click)="$event.stopPropagation(); addLike();">
+        <button mat-button  class="gray" (click)="$event.stopPropagation(); addLike();">
           <mat-icon fontSet="fa" fontIcon="fa-star"></mat-icon>
           Liked {{' ' + numberOfLikes}}</button>
       </div>
       <div [hidden]="likedByUser">
-          <button mat-button (click)="$event.stopPropagation(); addLike();">
+          <button mat-button  class="gray" (click)="$event.stopPropagation(); addLike();">
             <mat-icon fontSet="fa" fontIcon="fa-heart"></mat-icon>Like {{' ' + numberOfLikes}}</button>
       </div>
     </mat-card-actions>

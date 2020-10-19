@@ -17,16 +17,16 @@
 
         <!-- <div *ngIf="selectedCategory || selectedCategory === 0" class="subcategory"> -->
         <!-- <div class="subcategory"> -->
-                      <!-- (onClear)="filterJobTitle($event)" -->
+                      <!-- (onClear)="filterJobTitle($event)"             field="jobTitle"-->
         <div class="example-spacer">
           <p-autoComplete
             [(ngModel)]="selectedJobTitle"
             [suggestions]="filteredJobTitles"
             (completeMethod)="filterJobTitle($event)"
             (onSelect)="filterJobTitle($event); $event.stopPropagation"
-            field="jobTitle"
             [minLength]="1"
             class="search"
+            icon="pi pi-search"
             [ngClass]="{'filled':filled}"
             (onFocus)="filled=!filled;"
             (onClear)="navigate($event)"
@@ -48,7 +48,7 @@
 
     </div>
       <div *ngIf="!selectedCategory && selectedCategory !== 0" class="search-results">
-        SEARCH RESULTS FOR '{{this.selectedJobTitle}}':
+        Search results for: <em> {{this.selectedJobTitle || 'ALL'}} </em>
       </div>
 
       <ul *ngIf="posts && posts.length" class="main-list">

@@ -1,18 +1,16 @@
 <div class="user-content">
   <div class="row">
     <div class="col4" style="position: relative">
-      <div class="link" style="position: absolute">
-        <!-- <img class="card-img-top image" [src]="user.image" *ngIf="user.image" alt="User image"> -->
-        <!-- <img class="card-img-top image" src="https://via.placeholder.com/400x300" *ngIf="!user.image" alt="User image"> -->
-        <button pButton (click)="goBack();" icon="pi pi-arrow-left" label="Go Back" class="transparent white"></button>
-      </div>
+<!--       <div class="link" style="position: absolute">
+        <button pButton (click)="goBack();" label="Go Back" class="transparent white"></button>
+      </div> -->
       <p-tabView *ngIf="user">
         <p-tabPanel header="Your Posts">
           <div *ngIf="!userPosts || !userPosts.length" class="row row-center">You have not written any post so far.</div>
           <div *ngIf="userPosts && userPosts.length" class="row row-center">
-            <div class="right-margin">
+<!--             <div class="right-margin">
               <p-toggleButton class="basic-btn" [(ngModel)]="orderPostsByTimeAsc" (onChange)="orderPostsByDate()" onLabel="Newest First" offLabel="Oldest First" onIcon="pi pi-arrow-up" offIcon="pi pi-arrow-down" [style]="{'width': '10em'}"></p-toggleButton>
-            </div>
+            </div> -->
             <ul>
               <li *ngFor="let post of userPosts" class="row">
                 <div class="card-container">
@@ -36,9 +34,9 @@
         <p-tabPanel header="Your Comments">
           <div *ngIf="!userComments || !userComments.length" class="row row-center">You have not written any comment so far.</div>
           <div *ngIf="userComments && userComments.length" class="row row-center">
-            <div class="right-margin">
-              <p-toggleButton class="basic-btn" [(ngModel)]="orderCommentsByTimeAsc" (onChange)="orderCommentsByDate()" onLabel="Newest First" offLabel="Oldest First" onIcon="pi pi-arrow-up" offIcon="pi pi-arrow-down" [style]="{'width': '10em'}"></p-toggleButton>
-            </div>
+<!--             <div class="right-margin">
+              <p-toggleButton class="transparent" [(ngModel)]="orderCommentsByTimeAsc" (onChange)="orderCommentsByDate()" onLabel="Newest First" offLabel="Oldest First" onIcon="pi pi-arrow-up" offIcon="pi pi-arrow-down" [style]="{'width': '10em'}"></p-toggleButton>
+            </div> -->
             <ul>
               <li *ngFor="let comment of userComments" class="row">
                 <div class="card-container">

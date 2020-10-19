@@ -1,12 +1,12 @@
 h6 {
   color: #27363B !important;
   font-size: 16px;
-  //margin-bottom: 5px;
+  margin-bottom: 3px;
   font-family: "inconsolata";
 }
 
 li {
-  //padding: 15px;
+  padding: 15px 0px;
  // background-color: #27363B
 }
 
@@ -66,4 +66,9 @@ textarea {
 
 .row {
   align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  li {
+    min-width: 20%;
+  }
 }
