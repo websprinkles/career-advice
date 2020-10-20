@@ -37,7 +37,6 @@
         <div [ngClass]="{'hidden':(!selectedCategory && selectedCategory !== 0)}" class="subcategory">
           <mat-label *ngIf="!(selectedSubcategory || selectedSubcategory === 0)">Subcategory</mat-label>
           <mat-select [(value)]="selectedSubcategory">
-            <mat-option>None</mat-option>
             <mat-option *ngFor="let subcategory of subcategories" [value]="subcategory.value" (click)="selectSubcategory(subcategory);">{{subcategory.label}}</mat-option>
           </mat-select>
         </div>

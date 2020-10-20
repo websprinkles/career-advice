@@ -6,20 +6,20 @@
       </div> -->
       <p-tabView *ngIf="user">
         <p-tabPanel header="Your Posts">
-          <div *ngIf="!userPosts || !userPosts.length" class="row row-center">You have not written any post so far.</div>
+          <div *ngIf="!userPosts || !userPosts.length" class="row row-center empty">You have not written any post so far.</div>
           <div *ngIf="userPosts && userPosts.length" class="row row-center">
 <!--             <div class="right-margin">
               <p-toggleButton class="basic-btn" [(ngModel)]="orderPostsByTimeAsc" (onChange)="orderPostsByDate()" onLabel="Newest First" offLabel="Oldest First" onIcon="pi pi-arrow-up" offIcon="pi pi-arrow-down" [style]="{'width': '10em'}"></p-toggleButton>
             </div> -->
-            <ul>
+            <ul class="threads">
               <li *ngFor="let post of userPosts" class="row">
                 <div class="card-container">
                   <app-card (click)="selectPost(post.id)" [post]=post></app-card>
                 </div>
                 <div class="column margin-bottom">
-                  <button pButton type="button" (click)="selectPost(post.id);" icon="pi pi-search" label="Details" class="btn edit dark-font"></button>
-                  <!-- <p-button label="Delete" icon="pi pi-search" (click)="op.toggle($event)"></p-button> -->
-                  <button pButton type="text" (click)="op.show($event)" icon="pi pi-times" label="Delete" class="btn edit"></button>
+                  <button mat-fab (click)="op.show($event)" color="primary" aria-label="Delete icon">
+                    <mat-icon fontSet="fa" fontIcon="fa-trash"></mat-icon>
+                  </button>
                 </div>
                 <p-overlayPanel #op appendTo="body" styleClass="warn">
                   <ng-template pTemplate>
@@ -32,19 +32,23 @@
           </div>
         </p-tabPanel>
         <p-tabPanel header="Your Comments">
-          <div *ngIf="!userComments || !userComments.length" class="row row-center">You have not written any comment so far.</div>
+          <div *ngIf="!userComments || !userComments.length" class="row row-center empty">You have not written any comment so far.</div>
           <div *ngIf="userComments && userComments.length" class="row row-center">
 <!--             <div class="right-margin">
               <p-toggleButton class="transparent" [(ngModel)]="orderCommentsByTimeAsc" (onChange)="orderCommentsByDate()" onLabel="Newest First" offLabel="Oldest First" onIcon="pi pi-arrow-up" offIcon="pi pi-arrow-down" [style]="{'width': '10em'}"></p-toggleButton>
             </div> -->
-            <ul>
+            <ul class="threads">
               <li *ngFor="let comment of userComments" class="row">
                 <div class="card-container">
                   <app-comment [comment]=comment></app-comment>
                 </div>
-                <div class="column margin-bottom">
-                  <button pButton type="button" (click)="selectPost(comment.postId);" icon="pi pi-search" label="Details" class="btn edit dark-font"></button>
-                  <button pButton type="text" (click)="op1.show($event)" icon="pi pi-times" label="Delete" class="btn edit"></button>
+                <div class="row margin-bottom">
+                  <button mat-fab (click)="selectPost(comment.postId);" color="primary" aria-label="Info icon">
+                    <mat-icon fontSet="fa" fontIcon="fa-info-circle"></mat-icon>
+                  </button>
+                  <button mat-fab (click)="op1.show($event)" color="primary" aria-label="Delete icon">
+                    <mat-icon fontSet="fa" fontIcon="fa-trash"></mat-icon>
+                  </button>
                 </div>
                 <p-overlayPanel #op1 appendTo="body" styleClass="warn">
                   <ng-template pTemplate>
@@ -57,24 +61,25 @@
           </div>
         </p-tabPanel>
         <p-tabPanel header="Likes">
-          <div class="popular-list column">
-            <div *ngIf="!userLikedPosts || !userLikedPosts.length" class="row row-center">You have not liked any post so far.</div>
+          <div class="popular-list column threads">
+            <div *ngIf="!userLikedPosts || !userLikedPosts.length" class="row row-center empty">You have not liked any post so far.</div>
             <ul *ngIf="userLikedPosts">
               <li *ngFor="let post of userLikedPosts" (click)="selectPost(post.id)"><app-card [post]=post [likesDisabled]="true"></app-card></li>
             </ul>
           </div>
         </p-tabPanel>
         <p-tabPanel header="Your Profile">
-          <div class="row row-center profile">
+          <div class="row row-center profile threads">
             <ul class="column">
-
               <li class="li-strech">
                 <ul class="row row-strech">
                   <li class="emphasized label">Your Profile Name:</li>
                   <li class="emphasized data">{{user.displayName}}</li>
                   <li class="right">
                     <div class="card-body">
-                      <button pButton type="button" (click)="name.show($event)" icon="pi pi-pencil" label="Edit" class="btn edit dark-font"></button>
+                      <button mat-raised-button (click)="name.show($event)" aria-label="Delete icon">
+                        <mat-icon fontSet="fa" fontIcon="fa-pencil"></mat-icon>Edit
+                      </button>
                       <p-overlayPanel #name appendTo="body" styleClass="warn">
                         <ng-template pTemplate>
                           <form *ngIf="profileForm" [formGroup]="profileForm">
@@ -104,7 +109,10 @@
                   <li class="emphasized data data-delete">Delete you user data, your posts and comments</li>
                   <li class="right">
                     <div class="card-body">
-                      <button pButton type="button" (click)="delete.show($event)" icon="pi pi-times" label="Delete Account" class="btn edit dark-font"></button>
+                      <button mat-raised-button (click)="delete.show($event)" aria-label="Delete icon">
+                        <mat-icon fontSet="fa" fontIcon="fa-trash"></mat-icon>Delete Account
+                      </button>
+                      <!-- <button pButton type="button" (click)="delete.show($event)" icon="pi pi-times" label="Delete Account" class="btn edit dark-font"></button> -->
                       <p-overlayPanel #delete appendTo="body" styleClass="warn">
                         <ng-template pTemplate>
                           <div>

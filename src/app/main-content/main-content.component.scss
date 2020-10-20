@@ -1,7 +1,7 @@
 .main-content {
   display: flex;
   //background: darkseagreen;
-  margin: 0px 144px;
+  //spremenjenomargin: 0px 144px;
 }
 
 .left, .right {
@@ -18,16 +18,22 @@
 
 .right-inner {
   padding-right: 16px;
+  min-width: 690px;
 }
+
 
 .left {
  // display: flex; //fix
 //  flex-basis: 35%;
 flex-basis: 30%;
+min-width: 430px;
   padding-top: 24px;
+  padding-bottom: 24px;
+  padding-right: 36px;
   //background: #456361;
 background: #4C6251;
 border-radius: 4px;
+height: max-content;
 }
 
 .mat-list-base {
@@ -101,7 +107,7 @@ border-radius: 4px;
   color: #1E1E20;
   //: white;
   em {
-  background: cadetblue;
+  background: indianred;
   color: white;
   //font-weight: bold;
   //border-radius: 4px;
@@ -136,5 +142,25 @@ border-radius: 4px;
     //border: 1px solid gray;
     margin-right: 20px;
     min-width: 35%;
+  }
+}
+
+@media all and (max-width: 1200px) and (min-width: 900px) {
+
+  .right-inner {
+    padding-right: 0px;
+    min-width: 500px;
+  }
+
+  .right {
+    padding-right: 0px;
+    padding-left: 10px;
+  }
+
+  .left {
+    min-width: 340px;
+    padding-top: 6px;
+    padding-right: 0px;
+    padding-left: 0;
   }
 }

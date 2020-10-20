@@ -2,7 +2,7 @@ div, .mat-card {
   font-family: 'inconsolata';
   background: #fefdfd;
  // box-shadow: none;
-  color: #1E1E20;
+  //color: #1E1E20;
 }
 
 .mat-card {
@@ -26,8 +26,13 @@ div, .mat-card {
 }
 
 .mat-icon {
-  height: 18px;
+  height: 16px;
   width: 24px;
+}
+
+.fa-ellipsis-v {
+  height: 14px;
+  width: 8px;
 }
 
 .mat-card-subtitle {
@@ -37,8 +42,17 @@ div, .mat-card {
  // display: inline-block;
 }
 
+.black {
+  color: black;
+  font-size: medium;
+}
+
+.red {
+  color: indianred;
+}
+
 .mat-card-title {
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 600;
   font-family: 'oswald';
 }
@@ -47,7 +61,21 @@ div, .mat-card {
   white-space: pre-wrap;
 }
 
-.mat-card-actions, .mat-card-subtitle {
+.mat-card-subtitle {
   display: flex;
   justify-content: space-between;
+}
+
+.mat-card-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.info {
+  em {
+    //color: darksalmon;
+  }
+  b {
+    font-weight: normal;
+  }
 }

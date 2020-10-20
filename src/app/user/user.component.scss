@@ -8,9 +8,6 @@ li.row {
  // background: whitesmoke;
   padding: 20px;
   margin: 10px;
-  border-radius: 4px;
-  padding-left: 0;
-  margin-left: 0;
 }
 
 .image {
@@ -23,21 +20,36 @@ li.row {
   font-weight: bold;
 }
 
+.threads {
+  background-color: #9DBDA1;
+  background-image: linear-gradient(90deg, rgba(255,255,255,.07) 50%, transparent 50%), linear-gradient(90deg, rgba(255,255,255,.13) 50%, transparent 50%), linear-gradient(90deg, transparent 50%, rgba(255,255,255,.17) 50%), linear-gradient(90deg, transparent 50%, rgba(255,255,255,.19) 50%);
+  background-size: 14px, 1px, 1px, 4px;
+  li.row {
+    padding-left: 20px;
+    margin-left: 10px;
+    border-bottom: 1px solid;
+  }
+  button {
+    background-color: white !important;
+  }
+}
+
+.profile {
+  padding-top: 30px;
+}
+
 .margin-bottom {
   margin-bottom: 15px;
   margin-left: 30px;
   font-family: 'inconsolata';
-  button {
-    width: 140px;
-    margin: 5px;
-    border-radius: 8px;
+  .mat-icon {
     color: darkslategray;
-    font-weight: bold;
-    background: transparent;
-    font-family: 'inconsolata';
+    font-size: 22px;
   }
-  .dark-font {
-    //color: darksalmon;
+  button {
+    font-family: 'inconsolata';
+    background-color: transparent;
+    margin: 5px;
   }
 }
 
@@ -47,6 +59,17 @@ li.row {
   width: inherit;
   font-weight: bold;
   font-family: 'inconsolata';
+}
+
+.profile {
+  font-family: 'oswald';
+}
+
+.mat-raised-button {
+  font-family: 'oswald';
+  .mat-icon {
+    height: 18px;
+  }
 }
 
 .white-link {
@@ -60,21 +83,12 @@ li.row {
   margin-top: 10px;
 }
 
-.label {
-}
-
-.data {
-}
-
 .emphasized {
   font-size: 1.2rem;
   color: darkslategray;
   // white-space: nowrap;
   word-wrap: anywhere;
   min-width: 170px;
-}
-
-.right {
 }
 
 input {
@@ -121,6 +135,18 @@ h6 {
   max-width: 600px;
 }
 
+.popular-list ul li {
+  border-bottom: 1px solid;
+  padding: 20px;
+  margin: 10px;
+}
+
+.empty {
+  color: darkslategray;
+  padding: 30px;
+
+}
+
 @media all and (max-width: 930px) and (min-width: 0px) {
 
   .link .white {
@@ -134,37 +160,28 @@ h6 {
   .margin-bottom {
     margin-left: 0;
     flex-direction: row;
+    justify-content: flex-end;
+    flex: 1 1 auto;
+  }
+
+  .row.margin-bottom {
+    flex-wrap: wrap;
   }
 
   .card-container {
     min-width: unset;
-    max-width: unset;
+    max-width: 400px;
   }
 
   .margin-bottom button {
-    width: unset;
     font-size: small;
   }
 
   .row-center:not(.profile) li {
-    flex-wrap: wrap;
-    background-image: linear-gradient(
-      -45deg,
-      #27363b 0%,
-      #27363b 20%,
-      #eb4960 20%,
-      #eb4960 40%,
-      #f4837d 40%,
-      #f4837d 60%,
-      #fdceaa 60%,
-      #fdceaa 80%,
-      #99b998 80%,
-      #99b998 100%
-    );
     padding: 10px;
-    border-radius: 8px;
-    padding-bottom: 0;
-    margin-bottom: 15px;
+    max-width: 600px;
+    display: flex;
+    justify-content: space-between;
   }
 
   .profile {

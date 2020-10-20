@@ -1,48 +1,43 @@
 <div *ngIf="post">
   <mat-card>
+    <!-- <mat-card-title>{{'Never give up' | uppercase}}</mat-card-title> -->
     <mat-card-subtitle>
-      <div class="job-title">
+      <div class="black">
         {{post.jobTitle | uppercase}}
       </div>
-<!--       <div class="blue">
+<!--      <div class="middle">
         Never give up
       </div> -->
-      <div class="gray">
+      <div class="info">
+        <em>{{post.name}}</em>
+        <b> ON </b>
         {{post.time?.toDate() | date:'mediumDate'}}
       </div>
     </mat-card-subtitle>
-    <mat-card-title>{{'Never give up' | uppercase}}</mat-card-title>
-    <mat-card-content>{{post.message}}</mat-card-content>
+    <!-- <mat-card-title>{{'Never give up' | uppercase}}</mat-card-title> -->
+    <mat-card-content>{{post.message?.trim()}}</mat-card-content>
     <mat-card-actions>
-      <div  [hidden]="!likedByUser">
-        <button mat-button  class="gray" (click)="$event.stopPropagation(); addLike();">
-          <mat-icon fontSet="fa" fontIcon="fa-star"></mat-icon>
-          Liked {{' ' + numberOfLikes}}</button>
+      <div [hidden]="!likedByUser" class="red">
+        <button mat-button (click)="$event.stopPropagation(); addLike();">
+          <mat-icon fontSet="fa" fontIcon="fa-heart"></mat-icon>
+          Liked {{' (' + numberOfLikes + ')'}}</button>
       </div>
       <div [hidden]="likedByUser">
-          <button mat-button  class="gray" (click)="$event.stopPropagation(); addLike();">
-            <mat-icon fontSet="fa" fontIcon="fa-heart"></mat-icon>Like {{' ' + numberOfLikes}}</button>
+          <button mat-button (click)="$event.stopPropagation(); addLike();">
+            <mat-icon fontSet="fa" fontIcon="fa-heart"></mat-icon>Like {{' (' + numberOfLikes + ')'}}</button>
       </div>
+      <div *ngIf="showBottomWidget">
+        <button mat-button  (click)="$event.stopPropagation(); showDialog();">
+          <mat-icon fontSet="fa" fontIcon="fa-ellipsis-h"></mat-icon>Report</button>
+      </div>
+      <div *ngIf="!showBottomWidget">
+        <button mat-button>
+          <mat-icon fontSet="fa" fontIcon="fa-ellipsis-v"></mat-icon>Show more</button>
+    </div>
     </mat-card-actions>
   </mat-card>
 </div>
-<!--
-  <div *ngIf="showBottomWidget" class='bottom-widget'>
-    <ul class='row bottom-row'>
-      <li (click)="$event.stopPropagation(); addLike();">
-        <ul class="row">
-          <li [hidden]="!likedByUser"><i class="fa fa-heart"></i></li>
-          <li [hidden]="likedByUser"><i class="pi pi-heart"></i></li>
-          <li [hidden]="likedByUser">&nbsp;&nbsp;Like&nbsp;</li>
-          <li [hidden]="!likedByUser">&nbsp;&nbsp;Liked&nbsp;</li>
-          <li></li>
-        </ul>
-      </li>
-      <li>{{numberOfLikes}}&nbsp;&nbsp;Likes</li>
-      <li (click)="$event.stopPropagation(); showDialog();">
-        <i class="pi pi-ellipsis-h"></i>&nbsp;&nbsp;Report
-      </li>
-    </ul>
+
     <p-dialog class="info" header="Report inappropriate content" [(visible)]="displayReportDialog" [style]="{width: '50vw'}" [baseZIndex]="10000">
       <form *ngIf="inputForm" [formGroup]="inputForm" class="form">
         <ul>
@@ -70,5 +65,3 @@
       </div>
       </ng-template>
     </p-dialog>
-  </div>
-</div> -->

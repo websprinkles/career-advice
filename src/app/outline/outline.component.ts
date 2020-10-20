@@ -73,7 +73,7 @@ export class OutlineComponent implements OnInit {
   }
 
   goToHomePage() {
-    this.router.navigateByUrl('/home?filterTo=1980');
+    this.router.navigateByUrl('/home?category=0');
   }
 
   saveConsent() {

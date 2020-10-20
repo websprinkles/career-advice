@@ -1,10 +1,6 @@
-
-
 .mat-toolbar {
   background: white;
   color: black;
-  padding: 72px 144px;
-  font: 500 30px "fanwood-text";
 }
 
 .header-ul {
@@ -18,11 +14,7 @@
 }
 
 .filler {
-  height: 182px;
-}
-
-.mat-toolbar-single-row {
-  height: 158px;
+  //height: 182px;
 }
 
 .logo {
@@ -51,13 +43,58 @@
   opacity: 0.7;
   font-weight: 600;
   font-size: 22px;
+  font: 500 30px "fanwood-text";
+  .mat-toolbar-single-row {
+    height: 158px;
+  }
+  padding: 72px 144px;
+  top: 0;
 }
 
 .example-footer {
   position: absolute;
-  bottom: -88px;
+  //bottom: -88px;
+  bottom: 0px;
   left: 0;
   right: 0;
   z-index: 100;
-  margin-top: 128px;
+  margin-top: 64px;
+  font: 500 14px "oswald";
+  padding: 16px 144px;
+  background: black;
+  li {
+    padding: 0 5px;
+  }
+}
+
+.center {
+  justify-content: center;
+  width: 100%;
+}
+
+.copyrights {
+  color: white;
+}
+
+.router-wrapper {
+  padding-top: 182px;
+  padding-bottom: 102px;
+  padding-right: 144px;
+  padding-left: 144px;
+}
+
+@media all and (max-width: 1400px) and (min-width: 1200px) {
+
+  .router-wrapper, .example-header {
+    padding-right: 72px;
+    padding-left: 72px;
+  }
+}
+
+@media all and (max-width: 1200px) and (min-width: 900px) {
+
+  .router-wrapper, .example-header {
+    padding-right: 18px;
+    padding-left: 18px;
+  }
 }

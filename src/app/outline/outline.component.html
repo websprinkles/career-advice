@@ -4,13 +4,13 @@
       <li><img class="logo" src='/assets/icons/favicon.png' alt="Logo"></li>
       <li class="title">CAREER ADVICE - <em> first hand experience </em></li>
       <li class="header-right">
-      <li *ngIf="!isHomePage" >
+      <li>
         <button mat-button (click)="goToHomePage();">
-          <mat-icon fontSet="fa" fontIcon="fa-star"></mat-icon>Home
+          Home
         </button>
       </li>
-      <li *ngIf="isHomePage && isLogged">
-        <button mat-button(click)="goToUserPage();">Profile</button>
+      <li>
+        <button mat-button (click)="goToUserPage();">User</button>
       </li>
       <li>
         <button mat-button (click)="$event.stopPropagation(); showDialog();" icon="pi pi-envelope" label="Contact">Contact</button>
@@ -83,7 +83,9 @@
   </div>
 </p-dialog>
 
-<router-outlet></router-outlet>
+<div class="router-wrapper">
+  <router-outlet></router-outlet>
+</div>
 
 <div style="position: fixed; left: 50%; top: 20%;" class="modal-container">
   <div style="position: relative; left: -50%; top: -20%;">
@@ -92,7 +94,7 @@
 </div>
 
 <mat-toolbar class="example-footer">
-  <ul>
+  <ul class="row center">
     <li><a routerLink="/home/legal/terms">Terms of Services</a></li>
     <li><a routerLink="/home/legal/privacy">Privacy Policy</a></li>
     <li><a routerLink="/home/legal/cookies">Cookies Policy</a></li>
