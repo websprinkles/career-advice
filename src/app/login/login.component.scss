@@ -8,12 +8,29 @@
   margin-top: 0.5rem;
 }
 
-.error{
-  color: #EB4960;
+.error {
+  color: indianred;
+  background: white;
+  margin-top: 3px;
+  font-weight: bold;
+  border-radius: 3px;
 }
+
+::ng-deep .mat-progress-bar-fill::after {
+  background-color: darkgray;
+}
+
+::ng-deep .mat-progress-bar-buffer {
+  background: cadetblue;
+}
+
+/* ::ng-deep .mat-progress-bar-buffer {
+  background: #E4E8EB;
+} */
 
 .small-font {
   font-size: small;
+  color: white;
 }
 
 .btn-wrap {

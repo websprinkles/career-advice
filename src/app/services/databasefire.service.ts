@@ -6,7 +6,7 @@ import { CommentModel }  from '../entities/comment.model';
 import { ReportModel }  from '../entities/report.model';
 import * as firebase from 'firebase/app';
 import { Observable } from 'rxjs';
-import { first } from 'rxjs/operators';
+import { first, map } from 'rxjs/operators';
 import { ContactMailModel } from '../entities/contactMail.model';
 import { LastMessageModel } from '../entities/lastMessage.model';
 
@@ -21,10 +21,10 @@ export class DatabasefireService {
       return this.db.collection('posts', ref => {return ref.orderBy('time', 'desc')}).valueChanges()
   }
 
-  getPostsByFilter(category = null, subcategory = null, jobTitle = null) {
+  getPostsByFilter(category = null, subcategory = null, jobTitle = null) { //not used, but working
     return this.db.collection('posts', ref => {
       let query : firebase.firestore.CollectionReference | firebase.firestore.Query = ref;
-      //if (jobTitle) { query = query.where('jobTitle', '==', jobTitle) };
+      if (jobTitle) { query = query.where('jobTitle', '==', jobTitle) };
       if (category && category !== -1) { query = query.where('category', '==', Number(category)) };
       if (subcategory  && subcategory !== -1) { query = query.where('subcategory', '==', Number(subcategory)) };
       return query;
@@ -77,17 +77,14 @@ export class DatabasefireService {
   }
 
   getPostsLikedByUser(userId) {
-    //probaj se najprej orderby in potem where.
     return this.db.collection('posts', ref => ref.where('likedBy', 'array-contains', userId)).valueChanges();
   }
 
   getPostsByUser(userId) {
-    //probaj se najprej orderby in potem where.
     return this.db.collection('posts', ref => ref.where('userId', '==', userId)).valueChanges();
   }
 
   getCommentsByUser(userId) {
-    //probaj se najprej orderby in potem where.
     return this.db.collection('comments', ref => ref.where('userId', '==', userId)).valueChanges();
   }
 

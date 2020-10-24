@@ -38,17 +38,15 @@
       </div>
     </div>
     <div>
-      <ul class="row divider">
+      <div *ngIf="isPending" class="row divider">
+        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+      </div>
+      <ul *ngIf="!isPending"  class="row divider">
         <li class="border-top"></li>
         <li>OR</li>
         <li class="border-top"></li>
       </ul>
     </div>
-<!--     <div class="row">
-      <div class="col4">
-        <button type="button" pButton class="transparent fb" (click)="tryFacebookLogin()" icon="fa fa-facebook" label="Login with Facebook"></button>
-      </div>
-    </div> -->
     <div class="row">
       <div class="col4">
         <button type="button" mat-button class="login-btn google-login" (click)="tryGoogleLogin()">

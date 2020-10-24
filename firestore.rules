@@ -1,0 +1,181 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function existingData() {
+      return resource.data
+    }
+    
+    function incomingData() {
+      return request.resource.data
+    }
+    
+    function isOwner(userId) {
+      return request.auth != null && request.auth.uid == userId
+    }
+    
+    function emailVerified() {
+        return request.auth.token.email_verified
+    }
+    
+    function emailProvider() {
+    		return request.auth.token.firebase.sign_in_provider
+    }
+    
+    function isUnmodified(key) {
+ 		 	return incomingData()[key] == existingData()[key]
+		}
+    
+    function isCalm(seconds) {
+    	return getAfter(/databases/$(database)/documents/users/$(request.auth.uid)).data.lastMessage
+          > get(/databases/$(database)/documents/users/$(request.auth.uid)).data.lastMessage + duration.value(seconds, 's');
+		}
+    
+    function isLikesArrEmpty() {
+    	  return (existingData().likedBy.size() == 0 &&
+        incomingData().likedBy.size() == 1 &&
+        incomingData().likedBy[0] == request.auth.uid)
+    }
+    
+    function isLikeRemoved() {
+    	return (incomingData().likedBy.size() == existingData().likedBy.size() - 1 &&
+    	existingData().likedBy.removeAll(incomingData().likedBy)[0] == request.auth.uid)
+    }
+    
+    function isLikeAdded() {
+    	return (existingData().likedBy.size() == incomingData().likedBy.size() - 1 &&
+    	 incomingData().likedBy.removeAll(existingData().likedBy)[0] == request.auth.uid)
+    }
+    
+    match /reports/{reportId} { 
+      allow create: if 
+      	emailVerified() && 
+        isOwner(incomingData().userId) &&
+        isCalm(5) &&
+      	incomingData().keys().hasOnly(
+        	["id", 
+           "userId",
+           "postId",
+           "message", 
+           "time"]) &&
+        exists(/databases/$(database)/documents/users/$(incomingData().userId)) &&
+        exists(/databases/$(database)/documents/posts/$(incomingData().postId)) &&
+        incomingData().id == reportId &&
+        incomingData().time == request.time &&
+        incomingData().message is string &&
+        incomingData().message.size() < 500;
+    }
+    
+    match /contactMail/{mailId} { 
+    	allow read: if true;
+      allow create: if 
+      	emailVerified() && 
+        isOwner(incomingData().userId) &&
+        isCalm(5) &&
+      	incomingData().keys().hasOnly(
+        	["id", 
+           "userId", 
+           "email",
+           "message", 
+           "time"]) &&
+        exists(/databases/$(database)/documents/users/$(incomingData().userId)) &&
+        incomingData().id == mailId &&
+        incomingData().time == request.time &&
+        incomingData().message is string &&
+        incomingData().message.size() < 2000 &&
+        incomingData().email is string &&
+        incomingData().email.size() < 320;
+    }
+    
+    match /comments/{commentId} { 
+    	allow read: if true;
+      allow create: if 
+      	emailVerified() && 
+        isOwner(incomingData().userId) &&
+        isCalm(5) &&
+      	incomingData().keys().hasOnly(
+        	["id", 
+           "userId", 
+           "postId", 
+           "name", 
+           "comment", 
+           "time"]) &&
+        exists(/databases/$(database)/documents/posts/$(incomingData().postId)) &&
+        exists(/databases/$(database)/documents/users/$(incomingData().userId)) &&
+        incomingData().id == commentId &&
+        incomingData().time == request.time &&
+        incomingData().name is string &&
+        incomingData().name.size() < 100 &&
+        incomingData().comment is string &&
+        incomingData().comment.size() < 500
+      allow delete: if isOwner(existingData().userId) && emailVerified();
+    }
+
+    
+    match /posts/{postId} {
+    	allow read: if true;
+      allow delete: if isOwner(existingData().userId) && emailVerified();
+      allow create: if isCalm(10) &&
+          emailVerified() &&
+          isOwner(incomingData().userId) &&
+        	incomingData().keys().hasOnly(
+          	["id", 
+             "userId", 
+             "time", 
+             "name",
+             "jobTitle",
+             "message", 
+             "category",
+             "subcategory",
+             "likedBy"]) &&
+          incomingData().id == postId &&
+          incomingData().time == request.time &&
+          incomingData().name is string &&
+          incomingData().name.size() < 100 &&
+          incomingData().jobTitle is string &&
+          incomingData().jobTitle.size() < 100 &&
+          incomingData().message is string &&
+          incomingData().message.size() < 3500 &&
+          incomingData().likedBy is list &&
+          incomingData().likedBy.size() == 0 &&
+          int(incomingData().category) > -2 &&
+        	int(incomingData().category) < 10 &&
+          int(incomingData().subcategory) > -2 &&
+        	int(incomingData().subcategory) < 10
+        allow update: if isCalm(1) &&
+          emailVerified() &&
+    			request.auth.uid != null &&
+          (isLikesArrEmpty() ||
+          isLikeRemoved() ||
+          isLikeAdded()) &&
+          incomingData().diff(existingData()).affectedKeys().hasOnly(["likedBy"]);
+    }
+    
+
+    match /users/{userId} {
+      allow create: if isOwner(userId) &&
+      	 incomingData().keys().hasOnly(["id", "displayName", "email", "provider", "time", "lastMessage"]) &&
+         incomingData()['id'] == userId &&
+         (incomingData().displayName is string ||
+         incomingData().displayName.size() == 0) &&
+         incomingData().displayName.size() < 100 &&
+         incomingData().email is string &&
+         incomingData().email.size() < 320 &&
+         incomingData().provider == emailProvider() &&
+       	 incomingData().time == request.time &&
+         incomingData().lastMessage == request.time
+      allow delete, read: if isOwner(userId) && emailVerified();
+      allow update: if
+      	 isOwner(userId) && 
+      	 emailVerified() &&
+         incomingData().lastMessage == request.time &&
+         incomingData().keys().hasOnly(["id", "displayName", "email", "provider", "time", "lastMessage"]) &&
+         isUnmodified('id') &&
+         isUnmodified('email') && 
+         isUnmodified('provider') && 
+         isUnmodified('time') &&
+        (incomingData().displayName is string ||
+         incomingData().displayName.size() == 0) &&
+         incomingData().displayName.size() < 100;
+    }
+  }
+}

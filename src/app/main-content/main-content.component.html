@@ -62,22 +62,3 @@
     </div>
   </div>
 </div>
-
-<!-- <div class="main-content">
-  <div class="part left-side column">
-    <div>hello</div>
-  </div>
-  <div class="part middle-side">
-    <ul class="main-list">
-      <li *ngFor="let post of posts" (click)="selectPost(post);"><app-card [post]="post"></app-card></li>
-    </ul>
-    <div *ngIf="!posts || !posts.length" class="main-list empty"><br>There are no posts for the chosen categories. Be the first to write one!</div>
-  </div>
-  <div class="part left-padding right-side">
-    <div class="right-side-inner">
-      <app-post-form></app-post-form>
-      <p-dropdown [options]="categories" [(ngModel)]="selectedCategory" (onChange)="categoryChanged()" placeholder="CATEGORY" class='secondary-dropdown'></p-dropdown>
-      <p-toggleButton class="pop-btn" [(ngModel)]="orderByTime" (onChange)="orderByDate()" onLabel="Most Popular" offLabel="Newest First" onIcon="pi pi-heart" offIcon="pi pi-calendar" [style]="{'width': '10em'}"></p-toggleButton>
-    </div>
-  </div>
-</div> -->

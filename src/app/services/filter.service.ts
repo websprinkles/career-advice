@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, BehaviorSubject} from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { FilterParams } from '../entities/filterParams';
+import { PostModel } from '../entities/post.model';
 
 @Injectable({
   providedIn: 'root'
@@ -10,26 +11,26 @@ import { FilterParams } from '../entities/filterParams';
 
 export class FilterService {
 
-  private generationToSub: BehaviorSubject<number>;
-  private $generationToObservable: Observable<number>;
+  private newPostSub: BehaviorSubject<PostModel>;
+  private $newPostObservable: Observable<PostModel>;
 
   private queryParamsSub: BehaviorSubject<FilterParams>;
   private $queryParamsObservable: Observable<FilterParams>;
 
   constructor(private http: HttpClient) {
-    this.generationToSub = new BehaviorSubject<number>(1990);
-    this.$generationToObservable = this.generationToSub.asObservable();
+    this.newPostSub = new BehaviorSubject<PostModel>(null);
+    this.$newPostObservable = this.newPostSub.asObservable();
 
     this.queryParamsSub = new BehaviorSubject<FilterParams>(null);
     this.$queryParamsObservable = this.queryParamsSub.asObservable();
   }
 
-  public changeGenerationTo(f: number) {
-    this.generationToSub.next(f);
+  public changeNewPost(f: PostModel) {
+    this.newPostSub.next(f);
   }
 
-  public getGenerationTo(): Observable<number> {
-    return this.$generationToObservable;
+  public getNewPost(): Observable<PostModel> {
+    return this.$newPostObservable;
   }
 
   public setLastQueryParams(f: FilterParams) {

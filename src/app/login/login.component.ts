@@ -18,6 +18,7 @@ export class LoginComponent {
   successMessage: string = '';
   passwordReset = false;
   isNewUser = true;
+  isPending = false;
 
   constructor(
     public authService: AuthService,
@@ -41,8 +42,11 @@ export class LoginComponent {
   }
 
   tryFacebookLogin(){
+    this.isPending = true;
+
     this.authService.doFacebookLogin()
     .then(res => {
+      this.isPending = false;
       let user = res.user;
       if (res.additionalUserInfo.isNewUser) {
         this.addUserToFirestore(user);
@@ -51,12 +55,21 @@ export class LoginComponent {
       this.router.navigate([{outlets: {modal: null}}], { queryParamsHandling: 'merge', relativeTo: this.activatedRoute.parent}).then(()=>{
         this.notificationService.showSuccess('Logged In', 'You are now logged in.');
       });
+      this.errorMessage = '';
+    }, err => {
+      this.isPending = false;
+      this.errorMessage = err.message;
+      this.successMessage = '';
     })
   }
 
   tryGoogleLogin(){
+    this.isPending = true;
+
     this.authService.doGoogleLogin()
     .then(res => {
+
+      this.isPending = false;
       let user = res.user;
       if (res.additionalUserInfo.isNewUser) {
         this.addUserToFirestore(user);
@@ -65,27 +78,40 @@ export class LoginComponent {
       this.router.navigate([{outlets: {modal: null}}], { queryParamsHandling: 'merge', relativeTo: this.activatedRoute.parent}).then(()=>{
         this.notificationService.showSuccess('Logged In', 'You are now logged in.');
       });
+      this.errorMessage = '';
+    }, err => {
+      this.isPending = false;
+      this.errorMessage = err.message;
+      this.successMessage = '';
     })
   }
 
   tryLogin(value){
+    this.isPending = true;
     this.authService.doLogin(value)
     .then(res => {
+      this.isPending = false;
       this.router.navigate([{outlets: {modal: null}}], { queryParamsHandling: 'merge', relativeTo: this.activatedRoute.parent}).then(()=>{
         this.notificationService.showSuccess('Logged In', 'You are now logged in.');
       });
+      this.errorMessage = '';
     }, err => {
-      // console.log(err);
+      this.isPending = false;
       this.errorMessage = err.message;
+      this.successMessage = '';
     })
   }
 
   tryResendPassword(value){
+    this.isPending = true;
     this.authService.sendPasswordResetEmail(value)
     .then(res => {
+      this.isPending = false;
       this.successMessage = 'Password was resend. Please check your e-mail.'
+      this.errorMessage = '';
     }, err => {
-      // console.log(err);
+      this.successMessage = '';
+      this.isPending = false;
       this.errorMessage = err.message;
     })
   }

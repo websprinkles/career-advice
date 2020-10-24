@@ -7,31 +7,41 @@
   display: flex;
   width: 100%;
   align-items: center;
+  flex-wrap: wrap;
+}
+
+.header-wrap {
+  display: flex;
+width: 100%;
+flex-wrap: wrap;
+flex-direction: column;
+}
+
+.subtitle-summary {
+  font-family: 'inconsolata';
+  font-size: 14px;
+  display: flex;
+  width: min-content;
+  line-height: 16px;
 }
 
 .header-right {
   flex: 1 1 auto;
 }
 
-.filler {
-  //height: 182px;
-}
-
 .logo {
   height: 100%;
-  width: 42px;
+  width: 66px;
+  display: flex;
 }
 
 .title {
-  //background: #725A9A;
- // color: #725A9A;
   padding: 2px 8px;
   border-radius: 2px;
   font-weight: 500;
   align-items: center;
-  //font-family: "cormorant-garamond";
   font-family: "oswald";
-  font-size: 32px;
+  font-size: 34px;
   em {
     font-family: "niconne";
   }
@@ -44,16 +54,22 @@
   font-weight: 600;
   font-size: 22px;
   font: 500 30px "fanwood-text";
+
   .mat-toolbar-single-row {
     height: 158px;
   }
+
+  .mat-button {
+    font-family: 'lateef';
+    font-size: 20px;
+  }
+
   padding: 72px 144px;
   top: 0;
 }
 
 .example-footer {
   position: absolute;
-  //bottom: -88px;
   bottom: 0px;
   left: 0;
   right: 0;
@@ -83,18 +99,61 @@
   padding-left: 144px;
 }
 
-@media all and (max-width: 1400px) and (min-width: 1200px) {
+@media all and (max-width: 1400px) and (min-width: 1300px) {
 
   .router-wrapper, .example-header {
     padding-right: 72px;
     padding-left: 72px;
   }
+
 }
 
-@media all and (max-width: 1200px) and (min-width: 900px) {
+@media all and (max-width: 1300px) and (min-width: 930px) {
 
   .router-wrapper, .example-header {
     padding-right: 18px;
     padding-left: 18px;
+  }
+
+}
+
+@media all and (max-width: 930px) and (min-width: 0px) {
+
+  .router-wrapper {
+    padding: 0px 10px 64px 10px;
+  }
+
+  .example-header {
+    padding-right: 9px;
+    padding-left: 9px;
+    position: relative;
+    .logo, .subtitle-summary {
+      display: none;
+    }
+  }
+
+  .mat-button {
+    font-size: 11px;
+  }
+
+  .mat-toolbar-single-row {
+    height: unset;
+    white-space: pre-wrap;
+  }
+
+  .header-right {
+    width: 100%
+  }
+
+  .title {
+    font-size: 24px;
+  }
+
+}
+
+
+@media all and (max-width: 520px) and (min-width: 0px) {
+  .modal-container {
+    left: 20px !important;
   }
 }

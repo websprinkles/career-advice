@@ -1,25 +1,21 @@
 div, .mat-card {
   font-family: 'inconsolata';
   background: #fefdfd;
- // box-shadow: none;
-  //color: #1E1E20;
 }
 
 .mat-card {
- // box-shadow: 1px 2px 1px -1px rgba(0, 0, 0, 0.2),0px 1px 1px 1px rgba(0, 0, 0, 0.14),1px 1px 3px 1px rgba(0, 0, 0, 0.12);
   border: 1px solid beige;
 }
 
 .mat-card:hover {
-  transition: all 0.6s ease;
-  -webkit-transform: scale(1.1);
-  -ms-transform: scale(1.1);
-  transform: scale(1.1);
-  z-index: 1000;
+  transition: all 0.3s ease;
+  -webkit-transform: scale(1.03);
+  -ms-transform: scale(1.03);
+  transform: scale(1.03);
+  z-index: 10;
 }
 
 .mat-button {
- //fix color: lightsalmon;
   font-weight: 700;
   font-size: 12px;
   padding-left: 0;
@@ -36,10 +32,7 @@ div, .mat-card {
 }
 
 .mat-card-subtitle {
- //fix color: white;
-//fix  background: #574946;
   font-weight: 600;
- // display: inline-block;
 }
 
 .black {
@@ -72,9 +65,6 @@ div, .mat-card {
 }
 
 .info {
-  em {
-    //color: darksalmon;
-  }
   b {
     font-weight: normal;
   }

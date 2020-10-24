@@ -16,6 +16,7 @@ export class RegisterComponent {
   errorMessage: string = '';
   successMessage: string = '';
   consentChecked = false;
+  isPending = false;
 
   constructor(
     public authService: AuthService,
@@ -36,10 +37,14 @@ export class RegisterComponent {
    }
 
    tryFacebookLogin(){
+    this.isPending = true;
     this.authService.doFacebookLogin()
     .then(res => {
 
+      this.isPending = false;
       let user = res.user;
+      this.errorMessage = '';
+
       if (res.additionalUserInfo.isNewUser) {
         this.addUserToFirestore(user);
       }
@@ -47,14 +52,25 @@ export class RegisterComponent {
       this.router.navigate([{outlets: {modal: null}}], { queryParamsHandling: 'merge', relativeTo: this.activatedRoute.parent}).then(()=>{
         this.notificationService.showSuccess('Logged In', 'You are now logged in.');
       });
+
+    }, err => {
+
+      this.isPending = false;
+      this.errorMessage = err.message;
+      this.successMessage = '';
+
     })
   }
 
   tryGoogleLogin(){
+    this.isPending = true;
       this.authService.doGoogleLogin()
       .then(res => {
 
+        this.isPending = false;
         let user = res.user;
+        this.errorMessage = '';
+
         if (res.additionalUserInfo.isNewUser) {
           this.addUserToFirestore(user);
         }
@@ -62,13 +78,21 @@ export class RegisterComponent {
         this.router.navigate([{outlets: {modal: null}}], { queryParamsHandling: 'merge', relativeTo: this.activatedRoute.parent}).then(()=>{
           this.notificationService.showSuccess('Logged In', 'You are now logged in.');
         });
+      }, err => {
+
+        this.isPending = false;
+        this.errorMessage = err.message;
+        this.successMessage = '';
+
       })
   }
 
    tryRegister(value){
+      this.isPending = true;
       this.authService.doRegister(value)
       .then(res => {
 
+        this.isPending = false;
         this.errorMessage = "";
         this.successMessage = "Your account has been created.";
         this.trySendEmailVerification();
@@ -76,21 +100,27 @@ export class RegisterComponent {
         let user = res.user;
         this.addUserToFirestore(user);
       }, err => {
-        // console.log(err);
+        this.isPending = false;
         this.errorMessage = err.message;
         this.successMessage = "";
       })
    }
 
    trySendEmailVerification() {
+    this.isPending = true;
      this.authService.sendVerificationMail()
      .then(res => {
+
+      this.isPending = false;
       this.errorMessage = "";
       this.successMessage = "Check your e-mail to verificate your account before logging in.";
+
     }, err => {
-      // console.log(err);
+
+      this.isPending = false;
       this.errorMessage = err.message;
       this.successMessage = "";
+
     })
    }
 
@@ -104,7 +134,6 @@ export class RegisterComponent {
       displayName: user.displayName || 'Anonymous',
       email: user.email,
       provider: user.providerData[0].providerId,
-      //emailVerified: false //ali to res rabimo.. to lahko samo na back-endu preveris morda pri auth rules? preveri se kako je z gesli..
    });
   }
 

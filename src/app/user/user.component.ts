@@ -164,7 +164,7 @@ export class UserComponent implements OnInit{
       setTimeout(() => { location.reload(); }, 3000);
     }, err => {
       this.errorDelete = true;
-      this.errorDeleteMsg = err.message;
+      this.errorDeleteMsg = 'Your posts and comments have been deleted, but your account is still active.' + err.message;
       this.notificationService.showError('Error', 'Your Account Has Not Been Deleted.');
     })
 

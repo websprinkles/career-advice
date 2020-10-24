@@ -6,6 +6,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
 import { FilterParams } from '../entities/filterParams';
 import { Categories } from '../entities/filterConstants';
+import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-main-content',
@@ -44,6 +45,7 @@ export class MainContentComponent implements OnInit {
 
   ngOnInit() {
     this.getPostsByFilter();
+    this.listenForNewPost();
   }
 
   getPostsByFilter() {
@@ -63,6 +65,7 @@ export class MainContentComponent implements OnInit {
         this.params = {category: params.category, subcategory: params.subcategory, jobTitle: params.jobTitle};
 
         this.postsSubscription = this.databaseService.getPosts()
+          .pipe(first())
           .subscribe(x => {
             if (x) {
               if (params.jobTitle) {
@@ -80,24 +83,35 @@ export class MainContentComponent implements OnInit {
     );
   }
 
+  listenForNewPost() {
+    this.filterService.getNewPost().subscribe(x => {
+        if (x) {
+          if (this.selectedCategory === x.category ||
+              x.jobTitle.toLowerCase().indexOf(this.selectedJobTitle?.toLowerCase()) !== -1 ||
+              this.router.url === '/home') {
+
+            this.posts?.unshift(x as PostModel);
+
+          }
+        }
+      }
+    )
+  }
+
 
   navigate(event) {
-    console.log(event);
     this.router.navigate(['/home'], { queryParams: { jobTitle: '' }});
-/*     if (this.posts?.length === 0 && !event.query) {
-     this.router.navigate(['/home'], { queryParams: { category: 0, subcategory: null}});
-    } */
   }
 
 
   filterByTitle(query, posts) {
-    //in a real application, make a request to a remote url with the query and return filtered results, for demo we filter at client side
+
     let filtered: any[] = [];
     let jobTitles: string[] = [];
-   // let query = event.query;
+
     for(let i = 0; i < posts?.length; i++) {
         let post = posts[i];
-        if (post.jobTitle.toLowerCase().indexOf(query.toLowerCase()) == 0) {
+        if (post.jobTitle.toLowerCase().indexOf(query.toLowerCase()) !== -1) {
             filtered.push(post);
             if (!jobTitles.includes(post.jobTitle.toLowerCase())) {
               jobTitles.push(post.jobTitle.toLowerCase());
@@ -110,22 +124,18 @@ export class MainContentComponent implements OnInit {
   }
 
   selectCategory(options, category) {
-    //console.log(options[0]?.value);
     let jobTitleExists = !!(this.selectedJobTitle || this.selectedJobTitle === '');
     this.router.navigate(['/home'], { queryParams: { category: category.value, subcategory: null }, queryParamsHandling: jobTitleExists? null : 'merge' });
   }
 
   selectSubcategory(subcategory) {
-    console.log(this.selectedCategory)
     let jobTitleExists = !!(this.selectedJobTitle || this.selectedJobTitle === '');
-    //if (this.selectedCategory || this.selectedCategory === 0) {
-      this.router.navigate(['/home'], { queryParams: { subcategory: subcategory.value }, queryParamsHandling: jobTitleExists ? null : 'merge' });
-    //}
+
+    this.router.navigate(['/home'], { queryParams: { subcategory: subcategory.value }, queryParamsHandling: jobTitleExists ? null : 'merge' });
   }
 
   filterJobTitle(event) {
     let params = event.query || event.jobTitle || event;
-    //console.log(params);
     this.router.navigate(['/home'], { queryParams: { jobTitle: params }});
   }
 

@@ -23,34 +23,6 @@ li {
   color: #27363B;
 }
 
-//#27363B
-  //#EB4960
-  //#F4837D
-  //#FDCEAA
-  //#99B998
-
-  //#81D4FA
-
-/* li:first-child {
-  background-color: #99B998;
-}
-
-li:nth-child(2) {
-background-color: #FDCEAA;
-}
-
-li:nth-child(3) {
-background-color: #F4837D;
-}
-
-li:nth-child(4) {
-background-color: #EB4960;
-}
-
-li:nth-child(5) {
-background-color: #27363B;
-} */
-
 textarea, input {
   width: 100%;
   border-radius: 8px;
@@ -60,8 +32,17 @@ textarea, input {
   font-family: "inconsolata";
 }
 
+h4 {
+  margin-top: 10px;
+  color: indianred;
+}
+
+h6 {
+  min-width: 330px;
+}
+
 textarea {
-  height: 500px;
+  height: 450px;
 }
 
 .row {
@@ -70,5 +51,21 @@ textarea {
   flex-wrap: wrap;
   li {
     min-width: 20%;
+  }
+}
+
+@media all and (max-width: 1300px) and (min-width: 521px) {
+  textarea {
+    height: 300px;
+  }
+}
+
+@media all and (max-width: 520px) and (min-width: 0px) {
+  textarea {
+    height: 250px;
+  }
+
+  h6 {
+    min-width: 230px;
   }
 }

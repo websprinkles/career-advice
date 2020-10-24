@@ -1,57 +1,30 @@
-/* You can add global styles to this file, and also import other style files */
 
 * {
-  //font-family: 'oranienbaum';
-  //#1E1E20
-  //#EB4960
-  //#F4837D
-  //#FDCEAA
-  //#99B998
   padding: 0px;
   margin: 0px;
   box-shadow: none;
   outline: none;
 }
 
-body { //#A7CA98 //#377978
- // background-image: linear-gradient(20deg, darkkhaki 0%,darkkhaki 40%, white 40%) !important;
-  //background-image: linear-gradient(20deg, #ecdcca 0%, #ecdcca 40%, white 40%) !important;
-  //background-image: linear-gradient(20deg, #C8C7C2 0%, #C8C7C2 40%, white 40%) !important;
-  //background-image: linear-gradient(90deg, white, #DEDBB5);
-  //background-image: linear-gradient(20deg, #E0E3D2 0%, #E0E3D2 40%, white 40%) !important;
-  //background: #377978;
-  //background-image: linear-gradient(90deg, white, darkkhaki, #377978);
-  //background: lemonchiffon;
-  // #4C6251 #E3C867
- //background: url('/assets/images/back1.png')  no-repeat center center fixed;
- //background: no-repeat center center fixed;
-/*   -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover; #F3C49C*/
-
-/*   background:
-radial-gradient(beige 15%, transparent 16%) 0 0,
-radial-gradient(beige 15%, transparent 16%) 8px 8px,
-radial-gradient(ghostwhite 15%, transparent 20%) 0 1px,
-radial-gradient(ghostwhite 15%, transparent 20%) 8px 9px; */
-//background-image: linear-gradient(15deg, beige 0%,beige 40%, white 40%) !important;
-background:
-radial-gradient(beige 15%, transparent 16%) 0 0,
-radial-gradient(beige 15%, transparent 16%) 8px 8px,
-radial-gradient(ghostwhite 15%, transparent 20%) 0 1px,
-radial-gradient(ghostwhite 15%, transparent 20%) 8px 9px;
-background-color:white;
-background-size:20px 20px;
+body {
+  background: radial-gradient(beige 15%, transparent 16%) 0 0,
+    radial-gradient(beige 15%, transparent 16%) 8px 8px,
+    radial-gradient(ghostwhite 15%, transparent 20%) 0 1px,
+    radial-gradient(ghostwhite 15%, transparent 20%) 8px 9px;
+  background-color: white;
+  background-size: 20px 20px;
 }
 
 a {
   color: indianred;
-  font-family: 'inconsolata';
+  font-family: "inconsolata";
   text-decoration: none;
 }
 
-a, button, .p-button, .mat-card {
+a,
+button,
+.p-button,
+.mat-card {
   cursor: pointer;
 }
 
@@ -74,36 +47,30 @@ ul {
 .search .p-autocomplete-panel {
   min-width: calc(100% - 20px) !important;
   background: white;
-
   border: none;
+
   .p-autocomplete-items .p-autocomplete-item {
     font-family: "inconsolata";
-   // background: linear-gradient(0deg,beige,white);
     font-weight: bold;
     color: black;
-   // opacity: 0.7;
   }
+
 }
 
 .p-autocomplete input {
-  //background-image: url('./assets/icons/search.svg');
   border: none;
   padding: 15px;
-//  width: 15px;
   border-radius: 4px;
-  -webkit-transition: all .5s;
-  -moz-transition: all .5s;
-  transition: all .5s;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s;
   -webkit-box-sizing: content-box;
   -webkit-appearance: textfield;
   outline: none;
   cursor: pointer;
   z-index: 5;
   margin-right: 20px;
-  //background: bisque;
-  //background: bisque;
- // background-color: #D1E4D1;
-  background: #D1E4D1 url('./assets/icons/search.svg') no-repeat 16px center;
+  background: #d1e4d1 url("./assets/icons/search.svg") no-repeat 16px center;
   width: 100%;
   background-size: 1rem;
   padding-left: 4rem;
@@ -113,28 +80,31 @@ ul {
 .search,
 .search.filled {
   width: 100%;
-  -webkit-transition: all .5s;
-  -moz-transition: all .5s;
-  transition: all .5s;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s;
 }
 
 .search {
   .p-inputtext {
     font-family: "inconsolata";
-    color: #1E1E20 !important;
+    color: #1e1e20 !important;
     font-weight: bold;
   }
-  ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-    color: #1E1E20;
+  ::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #1e1e20;
     opacity: 1; /* Firefox */
   }
 
-  :-ms-input-placeholder { /* Internet Explorer 10-11 */
-    color: #1E1E20;
+  :-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: #1e1e20;
   }
 
-  ::-ms-input-placeholder { /* Microsoft Edge */
-    color: #1E1E20;
+  ::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: #1e1e20;
   }
 }
 
@@ -143,19 +113,14 @@ ul {
 }
 
 .filled .p-autocomplete input {
- // width: 150px;
   padding-left: 3rem;
-  color: #1E1E20;
-  //background-color: #fff;
+  color: #1e1e20;
   cursor: auto;
   width: 100%;
 }
 
 .p-autocomplete input:focus {
-  //width: 100%;
- // background-color: darksalmon;
- background-color: #EBF3EB;
- // border-color: lightgray;
+  background-color: #ebf3eb;
   padding-left: 3rem;
   cursor: auto;
   box-shadow: none;
@@ -171,9 +136,8 @@ ul {
   background: darksalmon;
   border: none;
   border-radius: 8px;
-  color: #1E1E20;
-  font-family: 'inconsolata';
-  font-weight: bold;
+  color: #1e1e20;
+  font-family: "inconsolata";
   font-size: 1.3rem;
 }
 
@@ -185,8 +149,8 @@ ul {
 }
 
 .mat-button.google-login {
-  color: #1E1E20;
-  background: #8C7AA0;
+  color: #1e1e20;
+  background: #8c7aa0;
 
   .mat-icon {
     vertical-align: baseline;
@@ -194,15 +158,15 @@ ul {
 }
 
 .no-account p {
-  background: #1E1E20;
+  font-weight: bold;
   display: inline-block;
+  color: white;
 }
 
 .mat-button.primary-btn {
-  background: #9DBDA1;
+  background: #9dbda1;
   color: white;
   width: 140px;
-  //padding: 2px;
   padding: 5px;
   font-size: 16px;
   font-weight: bold;
@@ -218,13 +182,13 @@ ul {
 
 .basic-btn .p-togglebutton.p-button,
 .basic-btn .p-togglebutton.p-button.p-highlight {
-  font-family: 'inconsolata' !important;
+  font-family: "inconsolata" !important;
   border-radius: 8px;
   color: white;
   margin-top: 10px;
   font-size: 16px;
-  background: #9DBDA1;
-  border: 1px solid #9DBDA1;
+  background: #9dbda1;
+  border: 1px solid #9dbda1;
   font-weight: bold;
   .p-button-label {
     margin-bottom: -2px;
@@ -235,17 +199,18 @@ ul {
   }
 }
 
-.basic-btn.basic-dark-btn .p-togglebutton.p-button, .basic-btn .p-togglebutton.p-button.p-highlight {
-  background: #F3C49C;
-  border: 1px solid #F3C49C;
-  color: #1E1E20;
+.basic-btn.basic-dark-btn .p-togglebutton.p-button,
+.basic-btn .p-togglebutton.p-button.p-highlight {
+  background: #f3c49c;
+  border: 1px solid #f3c49c;
+  color: #1e1e20;
   .p-button-icon-left {
-    color: #1E1E20;
+    color: #1e1e20;
   }
 }
 
 .auth-form {
-  background: #9DBDA1;
+  background: #363636;
   font-family: "inconsolata";
   color: white;
   border-radius: 3px;
@@ -254,7 +219,9 @@ ul {
   max-width: 450px;
   min-width: 325px;
   max-height: 520px;
-  //border: 8px double white;
+
+position: fixed;
+z-index: 20000;
 
   .btn.transparent {
     padding: 0.5rem;
@@ -270,37 +237,18 @@ ul {
   color: white;
   font-size: 18px;
   font-weight: bold;
-  font-family: 'oranienbaum';
-}
-
-.p-slider {
- // margin: auto  !important;
-  display: block  !important;
-  width: 98%  !important;
-}
-
-.p-slider .p-slider-handle {
-  border-color: #EB4960 !important;
-  background-color: #EB4960 !important;
-  height: 2rem !important;
-  width: 2rem !important;
-  top: -12px !important;
-  margin-top: 0 !important;
-}
-
-.p-slider .p-slider-range {
-  background: #EB4960 !important;
+  font-family: "oranienbaum";
 }
 
 .p-button.basic,
 .p-button.basic-dark,
 .p-button.close {
-  background: #1E1E20;
+  background: #1e1e20;
   min-width: 140px;
   font-size: 1.2rem;
   border-radius: 8px;
   font-weight: bold;
-  font-family: 'oranienbaum';
+  font-family: "oranienbaum";
   .p-button-icon-left {
     display: none;
   }
@@ -313,6 +261,7 @@ ul {
   font-size: 20px;
   background-color: transparent;
 }
+
 .p-button.basic {
   color: white;
   border: 3px solid white;
@@ -324,7 +273,7 @@ ul {
 }
 
 .p-button.cancel {
-  color: #1E1E20;
+  color: #1e1e20;
   background: white;
   border-color: white;
   font-family: inherit;
@@ -340,51 +289,34 @@ ul {
 .p-tooltip .p-tooltip-text {
   background-color: white !important;
   color: darksalmon !important;
-  font-family: 'oranienbaum' !important;
+  font-family: "oranienbaum" !important;
 }
 
-.primary-dropdown .p-dropdown,
 .secondary-dropdown .p-dropdown {
-/*   background-color: #1E1E20 !important;
-  border: 3px solid white !important; */
   border-radius: 8px !important;
   font-size: 1.2rem !important;
   margin-bottom: 20px !important;
 
   .p-dropdown-label.p-placeholder,
   .p-inputtext {
-      font-size: 18px;
-      font-weight: bold;
-      font-family: "inconsolata";
+    font-size: 18px;
+    font-weight: bold;
+    font-family: "inconsolata";
   }
-}
-
-
-.primary-dropdown .p-dropdown {
-    background-color: white !important;
-    border: 2px solid white !important;
-    min-width: 250px !important;
-    padding: 0.2em 1em !important;
-    .p-dropdown-trigger {
-      color: #1E1E20 !important;
-    }
-    .p-dropdown-label.p-placeholder {
-      color: #1E1E20 !important;
-    }
 }
 
 .secondary-dropdown .p-dropdown {
   background-color: white !important;
-  border: 3px solid #1E1E20 !important;
+  border: 3px solid #1e1e20 !important;
   margin-top: 15px;
   min-width: 140px !important;
 
   .p-dropdown-trigger {
-    color: #1E1E20 !important;
+    color: #1e1e20 !important;
     display: none;
   }
   .p-dropdown-label.p-placeholder {
-    color: #1E1E20 !important;
+    color: #1e1e20 !important;
   }
   .p-inputtext {
     display: flex;
@@ -399,18 +331,21 @@ ul {
 }
 
 .p-inputtext {
-  color: #1E1E20 !important;
+  color: #1e1e20 !important;
 }
 
 .rainbow .p-dialog {
   border-radius: 8px;
   border: none;
+
   .p-button.p-button-text {
     font-family: inherit;
     background-color: white;
-    color: #1E1E20;
+    color: #1e1e20;
   }
-  .p-dialog-header, .p-dialog-footer {
+
+  .p-dialog-header,
+  .p-dialog-footer {
     color: white;
     border: none;
     font-family: "inconsolata";
@@ -419,36 +354,51 @@ ul {
       font-size: 1.4rem;
     }
   }
+
   .p-dialog-header {
-    //background-color: darksalmon;
     color: white;
-    background-color: #4C6251;
-    background-image: linear-gradient(90deg, rgba(255,255,255,.07) 50%, transparent 50%), linear-gradient(90deg, rgba(255,255,255,.13) 50%, transparent 50%), linear-gradient(90deg, transparent 50%, rgba(255,255,255,.17) 50%), linear-gradient(90deg, transparent 50%, rgba(255,255,255,.19) 50%);
+    background-color: #4c6251;
+    background-image: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.07) 50%,
+        transparent 50%
+      ),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.13) 50%, transparent 50%),
+      linear-gradient(90deg, transparent 50%, rgba(255, 255, 255, 0.17) 50%),
+      linear-gradient(90deg, transparent 50%, rgba(255, 255, 255, 0.19) 50%);
     background-size: 14px, 1px, 1px, 4px;
-   // border-bottom: 4px solid #9DBDA1;
-   .p-dialog-header-icon {
-    color: #4C6251;
-   }
+
+    .p-dialog-header-icon {
+      color: #4c6251;
+    }
+
   }
+
   .p-dialog-footer {
-  //  border-top: 4px solid darksalmon;
-   // background: #9DBDA1;
-   //background-color: #1E1E20;
-   background-color: brown;
-   background-image: linear-gradient(90deg, rgba(255,255,255,.07) 50%, transparent 50%), linear-gradient(90deg, rgba(255,255,255,.13) 50%, transparent 50%), linear-gradient(90deg, transparent 50%, rgba(255,255,255,.17) 50%), linear-gradient(90deg, transparent 50%, rgba(255,255,255,.19) 50%);
-   background-size: 14px, 1px, 1px, 4px;
-  //border-top: 3px dotted #dedede;
-   button {
-    font-weight: bold;
-   }
+    background-color: brown;
+    background-image: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.07) 50%,
+        transparent 50%
+      ),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.13) 50%, transparent 50%),
+      linear-gradient(90deg, transparent 50%, rgba(255, 255, 255, 0.17) 50%),
+      linear-gradient(90deg, transparent 50%, rgba(255, 255, 255, 0.19) 50%);
+    background-size: 14px, 1px, 1px, 4px;
+
+    button {
+      font-weight: bold;
+    }
+
   }
+
   .p-dialog-content {
     padding: 0;
     font-family: "inconsolata";
     background: beige;
     padding: 15px;
-  //  background-image: linear-gradient(45deg, #1E1E20 0%, #1E1E20 20%, #EB4960 20%, #EB4960 40%, #F4837D 40%, #F4837D 60%, #FDCEAA 60%, #FDCEAA 80%, #99B998 80%, #99B998 100%) !important;
   }
+
   .p-inputtext {
     font-family: "inconsolata";
   }
@@ -457,7 +407,8 @@ ul {
 .info .p-dialog {
   border-radius: 8px;
   border: 4px solid floralwhite;
-  textarea, input {
+  textarea,
+  input {
     width: 100%;
     border-radius: 8px;
     border: none;
@@ -469,14 +420,17 @@ ul {
   textarea {
     height: 150px;
   }
+
   .p-button.p-button-text {
     font-family: "inconsolata";
     background-color: white;
-    color: #1E1E20;
+    color: #1e1e20;
   }
-  .p-dialog-header, .p-dialog-footer {
-    background-color: #1E1E20;
-    color: #1E1E20;
+
+  .p-dialog-header,
+  .p-dialog-footer {
+    background-color: #1e1e20;
+    color: #1e1e20;
     border: none;
     font-family: "inconsolata";
     .p-dialog-title {
@@ -484,32 +438,59 @@ ul {
       font-size: 1.4rem;
     }
   }
+
+  .p-dialog-header-icon {
+    color: white !important;
+  }
+
   .p-dialog-header {
-   // border-bottom: 3px dotted white;
     color: white;
     background-color: darkslategray;
-    background-image: linear-gradient(90deg, rgba(255,255,255,.07) 50%, transparent 50%), linear-gradient(90deg, rgba(255,255,255,.13) 50%, transparent 50%), linear-gradient(90deg, transparent 50%, rgba(255,255,255,.17) 50%), linear-gradient(90deg, transparent 50%, rgba(255,255,255,.19) 50%);
+    background-image: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.07) 50%,
+        transparent 50%
+      ),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.13) 50%, transparent 50%),
+      linear-gradient(90deg, transparent 50%, rgba(255, 255, 255, 0.17) 50%),
+      linear-gradient(90deg, transparent 50%, rgba(255, 255, 255, 0.19) 50%);
     background-size: 14px, 1px, 1px, 4px;
   }
-  .p-dialog-footer {
-   // border-top: 3px dotted white;
-   background-color: darkslategray;
-   background-image: linear-gradient(90deg, rgba(255,255,255,.07) 50%, transparent 50%), linear-gradient(90deg, rgba(255,255,255,.13) 50%, transparent 50%), linear-gradient(90deg, transparent 50%, rgba(255,255,255,.17) 50%), linear-gradient(90deg, transparent 50%, rgba(255,255,255,.19) 50%);
-   background-size: 14px, 1px, 1px, 4px;
-   div {
-     background-color: transparent;
 
-   }
+  .p-dialog-footer {
+    background-color: darkslategray;
+    background-image: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.07) 50%,
+        transparent 50%
+      ),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.13) 50%, transparent 50%),
+      linear-gradient(90deg, transparent 50%, rgba(255, 255, 255, 0.17) 50%),
+      linear-gradient(90deg, transparent 50%, rgba(255, 255, 255, 0.19) 50%);
+    background-size: 14px, 1px, 1px, 4px;
+
+    div {
+      background-color: transparent;
+    }
 
   }
+
   .p-dialog-content {
     color: white;
     padding: 1rem;
     font-family: "inconsolata";
     background-color: darkslategray;
-    background-image: linear-gradient(90deg, rgba(255,255,255,.07) 50%, transparent 50%), linear-gradient(90deg, rgba(255,255,255,.13) 50%, transparent 50%), linear-gradient(90deg, transparent 50%, rgba(255,255,255,.17) 50%), linear-gradient(90deg, transparent 50%, rgba(255,255,255,.19) 50%);
+    background-image: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.07) 50%,
+        transparent 50%
+      ),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.13) 50%, transparent 50%),
+      linear-gradient(90deg, transparent 50%, rgba(255, 255, 255, 0.17) 50%),
+      linear-gradient(90deg, transparent 50%, rgba(255, 255, 255, 0.19) 50%);
     background-size: 14px, 1px, 1px, 4px;
   }
+
   .p-inputtext {
     font-family: "inconsolata";
   }
@@ -531,59 +512,22 @@ ul {
   border-radius: 8px;
   background: darkslategray;
   color: white;
-  font-family: 'oswald';
+  font-family: "oswald";
   max-width: 400px;
-}
-
-
-.pop-btn .p-togglebutton.p-button,
-.pop-btn .p-togglebutton.p-button.p-highlight {
-  font-family: 'oranienbaum' !important;
-  border-radius: 8px;
-  color: #EB4960;
-  margin-top: 30px;
-  font-size: 20px;
-  background-color: white;
-  border: 3px solid #EB4960;
-  font-weight: bold;
-  .p-button-label {
-    margin-bottom: -2px;
-  }
-  .p-button-icon-left {
-    color: #EB4960;
-    font-size: 18px;
-  }
-}
-
-.dark .p-togglebutton.p-button,
-.dark .p-togglebutton.p-button.p-highlight {
-  font-family: 'oranienbaum' !important;
-  background-color: #1E1E20;
-  width: 100% !important;
-  border: 1px solid white;
-  color: white;
-  border-radius: 8px;
-  margin-top: 20px;
-  padding: 5px;
-  display: flex;
-  align-items: baseline;
-  .p-button-icon-left {
-    color: transparent;
-  }
 }
 
 .p-button.transparent {
   background: transparent;
   color: white;
   border-color: white;
-  font-family: 'oranienbaum';
+  font-family: "oranienbaum";
   border: none;
   border-radius: 8px;
   width: 100%;
 }
 
 .p-button.fb {
-  background-color: #3B5998;
+  background-color: #3b5998;
 }
 
 .p-button.google {
@@ -597,21 +541,6 @@ ul {
   align-items: flex-start;
 }
 
-.btn-default {
-  display: flex;
-  align-content: normal;
-  justify-content: center;
-  width: 100%;
-  background: #EB4960;
-  border: 3px solid #EB4960;
-  border-radius: 8px;
-  color: white;
-  font-family: 'oranienbaum';
-  font-weight: bold;
-  font-size: 1.3rem;
-  margin-top: 20px;
-}
-
 .divider li {
   flex: 1 1 0px;
   text-align: center;
@@ -619,26 +548,26 @@ ul {
 
 .divider {
   padding: 0px;
+  height: 17px;
 }
 
 .border-top {
   border-top: 3px dotted white;
 }
 
-.col4, .col6 {
+.col4,
+.col6 {
   input {
     width: 100%;
+    min-height: 30px;
   }
   width: 100%;
 }
 
 .p-tabview-panels {
   background: transparent !important;
- // spremenjeno padding: 0px 144px !important;
   border: none !important;
-  //border-top: 1px solid darkslategray !important;
- // margin-top: 2px;
- padding: 0px !important;
+  padding: 0px !important;
 }
 
 .container .p-tabview-panels {
@@ -653,36 +582,25 @@ ul {
   border-top-right-radius: 8px !important;
   border-top-left-radius: 8px !important;
   border-width: 3px !important;
-  //font-family: 'oranienbaum';
 }
 
 li.p-highlight .p-tabview-nav-link {
-  border-color: #9DBDA1 !important;
+  border-color: #9dbda1 !important;
   color: white !important;
-  background-color: #9DBDA1 !important;
-  background-image: linear-gradient(90deg, rgba(255,255,255,.07) 50%, transparent 50%), linear-gradient(90deg, rgba(255,255,255,.13) 50%, transparent 50%), linear-gradient(90deg, transparent 50%, rgba(255,255,255,.17) 50%), linear-gradient(90deg, transparent 50%, rgba(255,255,255,.19) 50%) !important;
+  background-color: #9dbda1 !important;
+  background-image: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.07) 50%,
+      transparent 50%
+    ),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.13) 50%, transparent 50%),
+    linear-gradient(90deg, transparent 50%, rgba(255, 255, 255, 0.17) 50%),
+    linear-gradient(90deg, transparent 50%, rgba(255, 255, 255, 0.19) 50%) !important;
   background-size: 14px, 1px, 1px, 4px !important;
 }
 
-.p-tabview-nav {
-  //spremenjeno padding: 0 144px !important;
-}
-
-/* .p-fieldset {
-  border: 3px dotted white !important;
-  background: transparent !important;
-  color: white !important;
-  border-radius: 8px !important;
-  .p-fieldset-legend {
-    border: 1px solid #1E1E20 !important;
-    color: white !important;
-    background: #1E1E20 !important;
-    border-radius: 8px !important;
-  }
-} */
-
 .p-toast .p-toast-message .p-toast-message-content {
-  font-family: 'oranienbaum';
+  font-family: "oranienbaum";
   background: darksalmon;
 }
 
@@ -690,35 +608,23 @@ li.p-highlight .p-tabview-nav-link {
   background: white !important;
 }
 
-
 .msg-mobile {
   display: none;
 }
 
-@media all and (max-width: 1300px) and (min-width: 930px) {
-
-  .primary-dropdown .p-dropdown {
-    min-width: 200px !important;
-    padding: 0 !important;
-  }
-}
-
 @media all and (max-width: 930px) and (min-width: 0px) {
-  .p-tabview-panels, .p-tabview-nav, .mat-toolbar {
+  .p-tabview-panels,
+  .p-tabview-nav {
     padding: 0 10px !important;
   }
 
-  .primary-dropdown .p-dropdown {
-    min-width: unset !important;
-    padding: 0 !important;
+  .mat-toolbar {
+    padding: 30px 10px !important;
   }
 
-  .pop-btn .p-togglebutton.p-button,
-  .pop-btn .p-togglebutton.p-button.p-highlight,
   .secondary-dropdown .p-dropdown {
     margin-top: 0 !important;
   }
-
 }
 
 @media all and (max-width: 520px) and (min-width: 0px) {
@@ -733,14 +639,8 @@ li.p-highlight .p-tabview-nav-link {
     min-width: 84px !important;
   }
 
-  .p-button, .p-inputtext {
-    padding: 5px !important;
-  }
-
   .secondary-dropdown .p-dropdown .p-inputtext,
-  .pop-btn .p-togglebutton.p-button,
   .p-inputtext {
-    font-size: small !important;
     max-height: 32px !important;
   }
 
@@ -754,11 +654,11 @@ li.p-highlight .p-tabview-nav-link {
     min-width: unset !important;
   }
 
-  .primary-dropdown .p-dropdown {
-    padding: 0 !important;
-    margin: 10px 0 0 0 !important;
-    font-size: 1rem !important;
-    margin-bottom: 5px !important;
+  .p-sidebar-bottom {
+    height: unset !important;
+  }
+
+  .auth-form {
+    max-width: 300px;
   }
 }
-

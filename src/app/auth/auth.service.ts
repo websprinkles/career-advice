@@ -41,7 +41,7 @@ export class AuthService {
         let actionCodeSettings = {
           // After email is verified, the user will be give the ability to go back
           // to the sign-in page.
-          url: 'http://www.timelyposts.com',
+          url: 'http://www.career-tips.org',
           handleCodeInApp: false
         };
         firebase.auth().currentUser.sendEmailVerification(actionCodeSettings)
@@ -62,7 +62,7 @@ export class AuthService {
       let actionCodeSettings = {
         // After email is verified, the user will be give the ability to go back
         // to the sign-in page.
-        url: 'http://www.timelyposts.com',
+        url: 'http://www.career-tips.org',
         handleCodeInApp: false
       };
       firebase.auth().sendPasswordResetEmail(email, actionCodeSettings)

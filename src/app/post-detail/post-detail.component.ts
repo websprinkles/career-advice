@@ -12,6 +12,7 @@ import { FilterService } from '../services/filter.service';
 import { first } from 'rxjs/operators';
 import { FilterParams } from '../entities/filterParams';
 import { Subscription } from 'rxjs';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-post-detail',
@@ -43,7 +44,8 @@ export class PostDetailComponent implements OnInit {
     private authService: AuthService,
     private notificationService: NotificationService,
     private filterService: FilterService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private location: Location
   ) {
     this.postId = this.route.snapshot.params['id'];
   }
@@ -66,7 +68,6 @@ export class PostDetailComponent implements OnInit {
     .subscribe(x => {
       if (x) {
         this.comments = x;
-      //  this.comments = this.comments.sort((a, b) => {return b.time.seconds - a.time.seconds});
       }
     }
    );
@@ -75,15 +76,6 @@ export class PostDetailComponent implements OnInit {
   goHome() {
     this.router.navigate(['/home'], { queryParams: this.homePageQueryParams});
   }
-
-/*   goToUserPage() {
-    if (this.user) {
-      this.router.navigateByUrl('/home/user');
-    } else {
-      this.notificationService.showInfo('Not logged in', 'If you want to visit User Page, make sure you are logged in.');
-    //  this.router.navigate([{outlets: {modal: 'login'}}], {queryParamsHandling: 'merge', relativeTo: this.activatedRoute.parent});
-    }
-  } */
 
   resetForm() {
     this.inputForm.reset();

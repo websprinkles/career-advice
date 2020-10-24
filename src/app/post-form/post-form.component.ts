@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {
   FormGroup,
   FormControl,
@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { NotificationService } from '../services/notification.service';
 import { Categories } from '../entities/filterConstants';
+import { FilterService } from '../services/filter.service';
 
 @Component({
   selector: 'app-post-form',
@@ -34,7 +35,8 @@ export class PostFormComponent implements OnInit {
     private databaseService: DatabasefireService,
     private authService: AuthService,
     private router: Router,
-    private notificationService: NotificationService
+    private notificationService: NotificationService,
+    private filterService: FilterService
   ) { }
 
   ngOnInit(): void {
@@ -45,16 +47,32 @@ export class PostFormComponent implements OnInit {
   get name() { return this.inputForm.get('name'); }
   get message() { return this.inputForm.get('message'); }
   get category() { return this.inputForm.get('category'); }
+  get subcategory() { return this.inputForm.get('subcategory'); }
+  get jobTitle() { return this.inputForm.get('jobTitle'); }
 
   onSubmit() {
     this.databaseService.addPost(this.inputForm.value).then(res => {
+
+      let newPost = {
+        id: '0',
+        userId: '0',
+        name: this.inputForm.value.name,
+        jobTitle: this.inputForm.value.jobTitle,
+        message: this.inputForm.value.message,
+        category: this.inputForm.value.category,
+        subcategory: this.inputForm.value.subcategory
+      }
+      this.filterService.changeNewPost(newPost);
+
       this.resetForm();
+      this.displayDialog = false;
       this.notificationService.showInfo('Success.', 'Your post is submitted.');
+
     }, err => {
+
       this.notificationService.showInfo('Something went wrong.', err.message);
-      this.resetForm();
-    }
-    )
+
+    });
   }
 
   resetForm() {
@@ -90,7 +108,6 @@ export class PostFormComponent implements OnInit {
       if (user) {
         this.isLogged = true;
         this.user = user;
-        // console.log(this.user);
       } else {
         this.user = null;
         this.isLogged = false;

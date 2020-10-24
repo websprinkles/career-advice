@@ -1,21 +1,20 @@
 <div *ngIf="post">
   <mat-card>
-    <!-- <mat-card-title>{{'Never give up' | uppercase}}</mat-card-title> -->
+
     <mat-card-subtitle>
       <div class="black">
         {{post.jobTitle | uppercase}}
       </div>
-<!--      <div class="middle">
-        Never give up
-      </div> -->
+
       <div class="info">
         <em>{{post.name}}</em>
         <b> ON </b>
-        {{post.time?.toDate() | date:'mediumDate'}}
+        {{post.time ? (post.time?.toDate() | date:'mediumDate') : 'Just Now'}}
       </div>
     </mat-card-subtitle>
-    <!-- <mat-card-title>{{'Never give up' | uppercase}}</mat-card-title> -->
+
     <mat-card-content>{{post.message?.trim()}}</mat-card-content>
+
     <mat-card-actions>
       <div [hidden]="!likedByUser" class="red">
         <button mat-button (click)="$event.stopPropagation(); addLike();">
@@ -33,12 +32,15 @@
       <div *ngIf="!showBottomWidget">
         <button mat-button>
           <mat-icon fontSet="fa" fontIcon="fa-ellipsis-v"></mat-icon>Show more</button>
-    </div>
+      </div>
     </mat-card-actions>
+
   </mat-card>
+
 </div>
 
     <p-dialog class="info" header="Report inappropriate content" [(visible)]="displayReportDialog" [style]="{width: '50vw'}" [baseZIndex]="10000">
+
       <form *ngIf="inputForm" [formGroup]="inputForm" class="form">
         <ul>
           <li>
@@ -50,7 +52,8 @@
           </li>
         </ul>
       </form>
-      <ng-template pTemplate="footer">
+
+    <ng-template pTemplate="footer">
         <div #btncontainer  style="display:inline-block;position:relative">
         <button pButton
           icon="pi pi-check"
@@ -63,5 +66,6 @@
           [disabled]="!inputForm.valid"></button>
         <button pButton icon="pi pi-times" (click)="displayReportDialog=false; resetForm()" label="Cancel" class="cancel"></button>
       </div>
-      </ng-template>
-    </p-dialog>
+    </ng-template>
+
+</p-dialog>

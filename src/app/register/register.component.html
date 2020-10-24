@@ -1,56 +1,67 @@
 <div class='auth-form'>
+
   <div class="btn-wrap">
     <button pButton type="button" (click)="goHome();" icon="pi pi-times" class="btn transparent"></button>
   </div>
+
   <h1 class="header">Create an account</h1>
+
   <div class="container">
+
     <div class="row">
+
       <div class="col6">
+
         <form [formGroup]="registerForm">
+
           <div class="form-group">
             <label>Email address</label>
             <input type="email" formControlName="email" class="form-control">
           </div>
+
           <div class="form-group">
             <label>Password</label>
             <input type="password" class="form-control" formControlName="password">
             <label class="error">{{errorMessage}}</label>
             <label class="success">{{successMessage}}</label>
           </div>
+
           <button mat-button type="submit" (click)="tryRegister(registerForm.value)" class="login-btn">Register</button>
+
         </form>
+
       </div>
+
     </div>
+
     <div>
-      <ul class="row divider">
+
+      <div *ngIf="isPending" class="row divider">
+        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+      </div>
+
+      <ul *ngIf="!isPending" class="row divider">
         <li class="border-top"></li>
         <li>OR</li>
         <li class="border-top"></li>
       </ul>
+
     </div>
-<!--     <div class="row">
-      <div class="col4">
-        <button type="button" pButton class="transparent fb" (click)="tryFacebookLogin()" icon="fa fa-facebook" label="Register with Facebook"></button>
-      </div>
-    </div> -->
+
     <div class="row">
       <div class="col4">
         <button type="button" mat-button class="login-btn google-login" (click)="tryGoogleLogin()">
           <mat-icon fontSet="pi" fontIcon="pi-google"></mat-icon> Register with Google</button>
       </div>
     </div>
+
     <div class="row small-font">
       <div class="col4">
-<!--         <div class="p-field-checkbox">
-          <p-checkbox [(ngModel)]="consentChecked" binary="true" inputId="binary"></p-checkbox>
-          <label for="binary">
-            By registering you acknowledge that you have read, understood and give consent to our
-            <a routerLink="/home/legal/terms">Terms of Services</a>, <a routerLink="/home/legal/privacy">Privacy Policy</a> and <a routerLink="/home/legal/cookies">Cookies Policy</a></label>
-        </div> -->
         By registering you acknowledge that you have read, understood and give consent to our
             <a routerLink="/home/legal/terms">Terms of Services</a>, <a routerLink="/home/legal/privacy">Privacy Policy</a> and <a routerLink="/home/legal/cookies">Cookies Policy</a>
       </div>
     </div>
+
     <div class="row">
       <div class="col4 no-account">
         <p>Already have an account? <a [routerLink]="['/home', {outlets: {modal: ['login']}}]" queryParamsHandling="merge">
@@ -58,5 +69,7 @@
         </a></p>
       </div>
     </div>
+
   </div>
+
 </div>
