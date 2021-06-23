@@ -1,4 +1,3 @@
-
 * {
   padding: 0px;
   margin: 0px;
@@ -54,7 +53,6 @@ ul {
     font-weight: bold;
     color: black;
   }
-
 }
 
 .p-autocomplete input {
@@ -220,8 +218,8 @@ ul {
   min-width: 325px;
   max-height: 520px;
 
-position: fixed;
-z-index: 20000;
+  position: fixed;
+  z-index: 20000;
 
   .btn.transparent {
     padding: 0.5rem;
@@ -371,7 +369,6 @@ z-index: 20000;
     .p-dialog-header-icon {
       color: #4c6251;
     }
-
   }
 
   .p-dialog-footer {
@@ -389,7 +386,6 @@ z-index: 20000;
     button {
       font-weight: bold;
     }
-
   }
 
   .p-dialog-content {
@@ -472,7 +468,6 @@ z-index: 20000;
     div {
       background-color: transparent;
     }
-
   }
 
   .p-dialog-content {
@@ -601,6 +596,14 @@ li.p-highlight .p-tabview-nav-link {
 
 .p-toast .p-toast-message .p-toast-message-content {
   font-family: "oranienbaum";
+}
+
+.p-toast .p-toast-message-success .p-toast-message-content,
+.p-toast .p-toast-message-info .p-toast-message-content {
+  background: #bedbbe;
+}
+
+.p-toast .p-toast-message-error .p-toast-message-content {
   background: darksalmon;
 }
 

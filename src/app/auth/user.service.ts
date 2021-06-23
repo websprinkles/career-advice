@@ -1,59 +1,49 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireAuth } from '@angular/fire/auth';
 import * as firebase from 'firebase/app';
 
 @Injectable()
 export class UserService {
+  constructor(public db: AngularFirestore, public afAuth: AngularFireAuth) { }
 
-
-  constructor(
-   public db: AngularFirestore,
-   public afAuth: AngularFireAuth
- ) {
- }
-
-  getCurrentUser(){
+  getCurrentUser(): Promise<any> {
     return new Promise<any>((resolve, reject) => {
-      var user = firebase.auth().onAuthStateChanged(function(user){
+      firebase.auth().onAuthStateChanged((user) => {
         if (user) {
           resolve(user);
         } else {
           reject('No user logged in');
         }
-      })
-    })
+      });
+    });
   }
 
-  updateCurrentUser(value){
+  updateCurrentUser(value): Promise<any> {
     return new Promise<any>((resolve, reject) => {
-      var user = firebase.auth().currentUser;
-      user.updateProfile({
-        displayName: value.name/* ,
-        photoURL: user.photoURL */
-      }).then(res => {
-        resolve(res);
-      }, err => reject(err))
-    })
+      const user = firebase.auth().currentUser;
+      user
+        .updateProfile({
+          displayName: value.name,
+        })
+        .then(
+          (res) => {
+            resolve(res);
+          },
+          (err) => reject(err)
+        );
+    });
   }
 
-  deleteCurrentUser() {
+  deleteCurrentUser(): Promise<any> {
     return new Promise<any>((resolve, reject) => {
-      var user = firebase.auth().currentUser;
-      user.delete().then(res => {
-        resolve(res);
-      }, err => reject(err))
-    })
+      const user = firebase.auth().currentUser;
+      user.delete().then(
+        (res) => {
+          resolve(res);
+        },
+        (err) => reject(err)
+      );
+    });
   }
-
-
-
-/*   updateUserMail(value: string){
-    return new Promise<any>((resolve, reject) => {
-      var user = firebase.auth().currentUser;
-      user.updateEmail(value).then(res => {
-        resolve(res);
-      }, err => reject(err))
-    })
-  } */
 }

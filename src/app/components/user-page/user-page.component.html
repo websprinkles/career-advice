@@ -1,0 +1,223 @@
+<div class="user-content">
+  <div class="row">
+    <div class="col4" style="position: relative">
+      <p-tabView *ngIf="user">
+        <p-tabPanel header="Your Posts">
+          <div
+            *ngIf="!userPosts || !userPosts.length"
+            class="row row-center empty"
+          >
+            You have not written any post so far.
+          </div>
+
+          <div *ngIf="userPosts && userPosts.length" class="row row-center">
+            <ul class="threads">
+              <li *ngFor="let post of userPosts" class="row">
+                <div class="card-container">
+                  <app-card
+                    (click)="selectPost(post.id)"
+                    [post]="post"
+                  ></app-card>
+                </div>
+
+                <div class="column margin-bottom">
+                  <button
+                    mat-fab
+                    (click)="op.show($event)"
+                    color="primary"
+                    aria-label="Delete icon"
+                  >
+                    <mat-icon fontSet="fa" fontIcon="fa-trash"></mat-icon>
+                  </button>
+                </div>
+
+                <p-overlayPanel #op appendTo="body" styleClass="warn">
+                  <ng-template pTemplate>
+                    <h6>
+                      Do You Really Want To Delete This Post? <br />
+                      All of its comments will be deleted as well.
+                    </h6>
+                    <button
+                      pButton
+                      type="button"
+                      (click)="deletePost(post)"
+                      icon="pi pi-times"
+                      label="Click Here To Permanently Delete This Post"
+                      class="btn edit"
+                    ></button>
+                  </ng-template>
+                </p-overlayPanel>
+              </li>
+            </ul>
+          </div>
+        </p-tabPanel>
+
+        <p-tabPanel header="Your Comments">
+          <div
+            *ngIf="!userComments || !userComments.length"
+            class="row row-center empty"
+          >
+            You have not written any comment so far.
+          </div>
+
+          <div
+            *ngIf="userComments && userComments.length"
+            class="row row-center"
+          >
+            <ul class="threads">
+              <li *ngFor="let comment of userComments" class="row">
+                <div class="card-container">
+                  <app-comment [comment]="comment"></app-comment>
+                </div>
+
+                <div class="row margin-bottom">
+                  <button
+                    mat-fab
+                    (click)="selectPost(comment.postId)"
+                    color="primary"
+                    aria-label="Info icon"
+                  >
+                    <mat-icon fontSet="fa" fontIcon="fa-info-circle"></mat-icon>
+                  </button>
+                  <button
+                    mat-fab
+                    (click)="op1.show($event)"
+                    color="primary"
+                    aria-label="Delete icon"
+                  >
+                    <mat-icon fontSet="fa" fontIcon="fa-trash"></mat-icon>
+                  </button>
+                </div>
+
+                <p-overlayPanel #op1 appendTo="body" styleClass="warn">
+                  <ng-template pTemplate>
+                    <h6>Do You Really Want To Delete This Comment?</h6>
+                    <button
+                      pButton
+                      type="button"
+                      (click)="deleteComment(comment)"
+                      icon="pi pi-times"
+                      label="Click Here To Permanently Delete This Comment"
+                      class="btn edit"
+                    ></button>
+                  </ng-template>
+                </p-overlayPanel>
+              </li>
+            </ul>
+          </div>
+        </p-tabPanel>
+
+        <p-tabPanel header="Likes">
+          <div class="popular-list column threads">
+            <div
+              *ngIf="!userLikedPosts || !userLikedPosts.length"
+              class="row row-center empty"
+            >
+              You have not liked any post so far.
+            </div>
+
+            <ul *ngIf="userLikedPosts">
+              <li
+                *ngFor="let post of userLikedPosts"
+                (click)="selectPost(post.id)"
+              >
+                <app-card [post]="post" [likesDisabled]="true"></app-card>
+              </li>
+            </ul>
+          </div>
+        </p-tabPanel>
+
+        <p-tabPanel header="Your Profile">
+          <div class="row row-center profile threads">
+            <ul class="column">
+              <li class="li-strech">
+                <ul class="row row-strech">
+                  <li class="emphasized label">Your Profile Name:</li>
+                  <li class="emphasized data">{{ user.displayName }}</li>
+                  <li class="right">
+                    <div class="card-body">
+                      <button
+                        mat-raised-button
+                        (click)="name.show($event)"
+                        aria-label="Delete icon"
+                      >
+                        <mat-icon fontSet="fa" fontIcon="fa-pencil"></mat-icon
+                        >Edit
+                      </button>
+
+                      <p-overlayPanel #name appendTo="body" styleClass="warn">
+                        <ng-template pTemplate>
+                          <form *ngIf="profileForm" [formGroup]="profileForm">
+                            <div class="form-group">
+                              <label>Your New Profile Name</label>
+                              <input
+                                type="text"
+                                formControlName="name"
+                                class="form-control"
+                                required
+                                maxlength="100"
+                              />
+                            </div>
+                          </form>
+                          <a
+                            (click)="save(profileForm.value); name.hide($event)"
+                            class="white-link"
+                            >Save</a
+                          >
+                        </ng-template>
+                      </p-overlayPanel>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+
+              <li class="li-strech">
+                <ul class="row row-strech">
+                  <li class="emphasized label">Your Email:</li>
+                  <li class="emphasized data">{{ user.email }}</li>
+                </ul>
+              </li>
+
+              <li class="li-strech">
+                <ul class="row row-strech">
+                  <li class="emphasized label">Delete Your Profile:</li>
+                  <li class="emphasized data data-delete">
+                    Delete you user data, your posts and comments
+                  </li>
+                  <li class="right">
+                    <div class="card-body">
+                      <button
+                        mat-raised-button
+                        (click)="delete.show($event)"
+                        aria-label="Delete icon"
+                      >
+                        <mat-icon fontSet="fa" fontIcon="fa-trash"></mat-icon
+                        >Delete Account
+                      </button>
+                      <p-overlayPanel #delete appendTo="body" styleClass="warn">
+                        <ng-template pTemplate>
+                          <div>
+                            Do you really want to delete your account? All your
+                            data (including posts and comments) will be
+                            permanently deleted.
+                          </div>
+                          <a
+                            (click)="deleteAccount(); delete.hide($event)"
+                            class="white-link"
+                            >Delete My Account</a
+                          >
+                        </ng-template>
+                      </p-overlayPanel>
+
+                      <div class="red">{{ errorDeleteMsg }}</div>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </p-tabPanel>
+      </p-tabView>
+    </div>
+  </div>
+</div>

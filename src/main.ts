@@ -3,6 +3,8 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
+import 'firebase/analytics';
+import { AngularFireAnalytics } from '@angular/fire/analytics';
 
 if (environment.production) {
   enableProdMode();

@@ -1,43 +1,40 @@
 import { Injectable } from '@angular/core';
 import { Observable, BehaviorSubject} from 'rxjs';
-import { HttpClient } from '@angular/common/http';
-import { FilterParams } from '../entities/filterParams';
-import { PostModel } from '../entities/post.model';
+import { Filters } from '../entities/filters';
 
 @Injectable({
   providedIn: 'root'
 })
 
-
 export class FilterService {
 
-  private newPostSub: BehaviorSubject<PostModel>;
-  private $newPostObservable: Observable<PostModel>;
+  private newPostSub: BehaviorSubject<boolean>;
+  private $newPostObservable: Observable<boolean>;
 
-  private queryParamsSub: BehaviorSubject<FilterParams>;
-  private $queryParamsObservable: Observable<FilterParams>;
+  private queryParamsSub: BehaviorSubject<Filters>;
+  private $queryParamsObservable: Observable<Filters>;
 
-  constructor(private http: HttpClient) {
-    this.newPostSub = new BehaviorSubject<PostModel>(null);
+  constructor() {
+    this.newPostSub = new BehaviorSubject<boolean>(null);
     this.$newPostObservable = this.newPostSub.asObservable();
 
-    this.queryParamsSub = new BehaviorSubject<FilterParams>(null);
+    this.queryParamsSub = new BehaviorSubject<Filters>(null);
     this.$queryParamsObservable = this.queryParamsSub.asObservable();
   }
 
-  public changeNewPost(f: PostModel) {
+  public addNewPost(f: boolean): void {
     this.newPostSub.next(f);
   }
 
-  public getNewPost(): Observable<PostModel> {
+  public getNewPost(): Observable<boolean> {
     return this.$newPostObservable;
   }
 
-  public setLastQueryParams(f: FilterParams) {
+  public setLastQueryParams(f: Filters): void {
     this.queryParamsSub.next(f);
   }
 
-  public getLastQueryParams(): Observable<FilterParams> {
+  public getLastQueryParams(): Observable<Filters> {
     return this.$queryParamsObservable;
   }
 

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, Router } from "@angular/router";
+import { CanActivate, Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { UserService } from '../auth/user.service';
 import { take, map, tap} from 'rxjs/operators';
@@ -21,7 +21,7 @@ export class AuthGuard implements CanActivate {
     map(user => !!user),
     tap(loggedIn => {
       if (!loggedIn) {
-        this.router.navigate(['/login'], { queryParamsHandling: "merge" });
+        this.router.navigate(['/login'], { queryParamsHandling: 'merge' });
       }
     }));
   }

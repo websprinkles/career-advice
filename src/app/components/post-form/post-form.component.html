@@ -1,0 +1,103 @@
+<button mat-button class="primary-btn" (click)="showDialog()">
+  <mat-icon fontSet="fa" fontIcon="fa-plus"></mat-icon>Add advice
+</button>
+
+<p-dialog
+  header="Advice"
+  [(visible)]="displayDialog"
+  (onHide)="resetForm()"
+  class="rainbow"
+  position="top"
+  [style]="{ width: '50vw' }"
+  [baseZIndex]="10000"
+>
+  <form *ngIf="inputForm" [formGroup]="inputForm" class="form">
+    <ul class="row">
+      <li>
+        <h6>Your Profile Name:</h6>
+        <div #container style="display: inline-block; position: relative">
+          <input
+            pInputText
+            pTooltip="Name can be changed in your profile page."
+            [appendTo]="container"
+            disabled
+            placeholder="{{ name.value }}"
+          />
+        </div>
+      </li>
+
+      <li>
+        <h6>Category*</h6>
+        <p-dropdown
+          class="form-dropdown"
+          [options]="categories"
+          (onChange)="setSubcategories(category.value)"
+          [style]="{ width: '100%' }"
+          formControlName="category"
+        ></p-dropdown>
+      </li>
+
+      <li>
+        <h6>Subcategory*</h6>
+        <p-dropdown
+          class="form-dropdown"
+          [options]="subcategories"
+          [style]="{ width: '100%' }"
+          formControlName="subcategory"
+        ></p-dropdown>
+      </li>
+
+      <li>
+        <h6>Job Title*</h6>
+        <input
+          pInputText
+          placeholder="Enter your job title"
+          required
+          formControlName="jobTitle"
+          maxlength="100"
+        />
+      </li>
+    </ul>
+
+    <div>
+      <h6>Your advice*</h6>
+      <textarea
+        formControlName="message"
+        required
+        placeholder="Enter Your Advice Here"
+        maxlength="3500"
+      ></textarea>
+    </div>
+
+    <div>
+      <h4>* = REQUIRED</h4>
+    </div>
+  </form>
+
+  <ng-template pTemplate="footer">
+    <div #btncontainer style="display: inline-block; position: relative">
+      <button
+        pButton
+        icon="pi pi-check"
+        (click)="onSubmit()"
+        label="Yes"
+        class="p-button-text"
+        pTooltip="{{
+          !inputForm.valid
+            ? 'Before Submitting a Message You Must Fill All Required Fields'
+            : ''
+        }}"
+        [appendTo]="btncontainer"
+        [disabled]="!inputForm.valid"
+      ></button>
+
+      <button
+        pButton
+        icon="pi pi-times"
+        (click)="displayDialog = false; resetForm()"
+        label="Cancel"
+        class="cancel"
+      ></button>
+    </div>
+  </ng-template>
+</p-dialog>

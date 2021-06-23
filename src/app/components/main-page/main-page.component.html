@@ -1,0 +1,74 @@
+<div class="main-content">
+  <div class="left">
+    <mat-selection-list #categories1 [multiple]="false">
+      <mat-list-option
+        *ngFor="let category of categories"
+        [selected]="selectedCategory === category.value"
+        [value]="category.value"
+        (click)="selectCategory(categories1.selectedOptions.selected, category)"
+      >
+        {{ category.label }}
+      </mat-list-option>
+    </mat-selection-list>
+  </div>
+
+  <div class="right">
+    <div class="right-inner">
+      <div class="toolbar">
+        <div class="example-spacer">
+          <p-autoComplete
+            [(ngModel)]="selectedJobTitle"
+            [suggestions]="filteredJobTitles"
+            (completeMethod)="filterJobTitle($event)"
+            (onSelect)="filterJobTitle($event); ($event.stopPropagation)"
+            [minLength]="1"
+            class="search"
+            icon="pi pi-search"
+            [ngClass]="{ filled: filled }"
+            (onFocus)="filled = !filled"
+            (onClear)="navigate($event)"
+            placeholder="Search by 'Job Title'"
+            (onBlur)="filled = selectedJobTitle ? true : false"
+          ></p-autoComplete>
+        </div>
+
+        <div
+          [ngClass]="{ hidden: !selectedCategory && selectedCategory !== 0 }"
+          class="subcategory"
+        >
+          <mat-label *ngIf="!(selectedSubcategory || selectedSubcategory === 0)"
+            >Subcategory</mat-label
+          >
+          <mat-select [(value)]="selectedSubcategory">
+            <mat-option
+              *ngFor="let subcategory of subcategories"
+              [value]="subcategory.value"
+              (click)="selectSubcategory(subcategory)"
+              >{{ subcategory.label }}</mat-option
+            >
+          </mat-select>
+        </div>
+
+        <div class="write">
+          <app-post-form></app-post-form>
+        </div>
+      </div>
+      <div
+        *ngIf="!selectedCategory && selectedCategory !== 0"
+        class="search-results"
+      >
+        Search results for: <em> {{ this.selectedJobTitle || "ALL" }} </em>
+      </div>
+
+      <ul *ngIf="posts && posts.length" class="main-list">
+        <li *ngFor="let post of posts" (click)="selectPost(post)">
+          <app-card [post]="post"></app-card>
+        </li>
+      </ul>
+
+      <div *ngIf="!(posts && posts.length)" class="main-list no-posts">
+        There are no advices for the chosen criteria yet.
+      </div>
+    </div>
+  </div>
+</div>

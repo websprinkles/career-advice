@@ -1,0 +1,36 @@
+::ng-deep .mat-progress-bar-fill::after {
+  background-color: darkgray;
+}
+
+::ng-deep .mat-progress-bar-buffer {
+  background: cadetblue;
+}
+
+.header {
+  text-align: center;
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+}
+
+.row {
+  margin-top: 0.5rem;
+}
+
+.error {
+  color: indianred;
+  background: white;
+  margin-top: 3px;
+  font-weight: bold;
+  border-radius: 3px;
+}
+
+.small-font {
+  font-size: small;
+  color: white;
+}
+
+.btn-wrap {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+}

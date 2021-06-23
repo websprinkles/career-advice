@@ -138,9 +138,9 @@ service cloud.firestore {
           incomingData().likedBy is list &&
           incomingData().likedBy.size() == 0 &&
           int(incomingData().category) > -2 &&
-        	int(incomingData().category) < 10 &&
+        	int(incomingData().category) < 15 &&
           int(incomingData().subcategory) > -2 &&
-        	int(incomingData().subcategory) < 10
+        	int(incomingData().subcategory) < 15
         allow update: if isCalm(1) &&
           emailVerified() &&
     			request.auth.uid != null &&

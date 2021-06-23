@@ -1,0 +1,72 @@
+div,
+.mat-card {
+  font-family: "inconsolata";
+  background: #fefdfd;
+}
+
+.mat-card {
+  border: 1px solid beige;
+}
+
+.mat-card:hover {
+  transition: all 0.3s ease;
+  -webkit-transform: scale(1.03);
+  -ms-transform: scale(1.03);
+  transform: scale(1.03);
+  z-index: 10;
+}
+
+.mat-button {
+  font-weight: 700;
+  font-size: 12px;
+  padding-left: 0;
+}
+
+.mat-icon {
+  height: 16px;
+  width: 24px;
+}
+
+.fa-ellipsis-v {
+  height: 14px;
+  width: 8px;
+}
+
+.mat-card-subtitle {
+  font-weight: 600;
+}
+
+.black {
+  color: black;
+  font-size: medium;
+}
+
+.red {
+  color: indianred;
+}
+
+.mat-card-title {
+  font-size: 16px;
+  font-weight: 600;
+  font-family: "oswald";
+}
+
+.mat-card-content {
+  white-space: pre-wrap;
+}
+
+.mat-card-subtitle {
+  display: flex;
+  justify-content: space-between;
+}
+
+.mat-card-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.info {
+  b {
+    font-weight: normal;
+  }
+}

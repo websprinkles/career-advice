@@ -1,34 +1,32 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { UserComponent } from './user/user.component';
+import { UserPageComponent } from './components/user-page/user-page.component';
 import { AuthGuard } from './auth/auth.guard';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
-import { OutlineComponent } from './outline/outline.component';
-import { MainContentComponent } from './main-content/main-content.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { OutlineComponent } from './components/outline/outline.component';
+import { MainPageComponent } from './components/main-page/main-page.component';
 import { EmailGuard } from './auth/email.guard';
-import { PostDetailComponent } from './post-detail/post-detail.component';
-import { LegalComponent } from './legal/legal.component';
+import { PostPageComponent } from './components/post-page/post-page.component';
+import { LegalComponent } from './components/legal/legal.component';
 
 const routes: Routes = [
-  // { path: '', redirectTo: 'app', pathMatch: 'full' },
   {
     path: 'home', component: OutlineComponent, children: [
       { path: 'login', component: LoginComponent, outlet: 'modal'},
       { path: 'register', component: RegisterComponent, outlet: 'modal'},
-      { path: 'user', component: UserComponent, canActivate: [AuthGuard, EmailGuard]},
+      { path: 'user', component: UserPageComponent, canActivate: [AuthGuard, EmailGuard]},
       { path: 'legal/:type', component: LegalComponent},
-      { path: 'post/:id', component: PostDetailComponent},
-      { path: '', component: MainContentComponent}
+      { path: 'post/:id', component: PostPageComponent},
+      { path: '', component: MainPageComponent}
     ]
   },
-  { path: '', redirectTo: '/home?category=0', pathMatch: 'full' }, // redirect to `first-component`
-  { path: '**', redirectTo: '/home?category=0' },  // Wildcard route for a 404 page
+  { path: '', redirectTo: '/home', pathMatch: 'full' }, // redirect to 'first component'
+  { path: '**', redirectTo: '/home' },  // Wildcard route for a 404 page
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  // imports: [RouterModule.forRoot(routes, { useHash: false })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

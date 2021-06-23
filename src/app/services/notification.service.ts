@@ -11,7 +11,7 @@ export class NotificationService {
 
   constructor() { }
 
-  showSuccess(summ: string, det: string) {
+  showSuccess(summ: string, det: string): void {
     this.toastToShow.next({
       severity: 'success',
       summary: summ,
@@ -19,7 +19,7 @@ export class NotificationService {
     });
   }
 
-  showInfo(summ: string, det: string) {
+  showInfo(summ: string, det: string): void {
     this.toastToShow.next({
       severity: 'info',
       summary: summ,
@@ -27,7 +27,7 @@ export class NotificationService {
     });
   }
 
-  showError(summ: string, det: string) {
+  showError(summ: string, det: string): void {
     this.toastToShow.next({
       severity: 'error',
       summary: summ,

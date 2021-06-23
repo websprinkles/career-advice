@@ -27,7 +27,10 @@
               "@firebase/remote-config",
               "@firebase/component",
               "@firebase/auth",
-              "@firebase/storage"
+              "@firebase/storage",
+              "@firebase/analytics",
+              "@firebase/util",
+              "@angular/fire/firestore"
            ],
             "outputPath": "dist/careeradvice",
             "index": "src/index.html",
@@ -50,11 +53,7 @@
               "./node_modules/typeface-pacifico/index.css",
               "./node_modules/typeface-cormorant-garamond/index.css",
               "./node_modules/typeface-dancing-script/index.css",
-              "./node_modules/typeface-peddana/index.css",
-              "./node_modules/typeface-bellefair/index.css",
               "./node_modules/typeface-fondamento/index.css",
-              "./node_modules/typeface-kodchasan/index.css",
-              "./node_modules/typeface-libre-caslon-display/index.css",
               "./node_modules/typeface-lancelot/index.css",
               "./node_modules/typeface-oswald/index.css",
               "./node_modules/typeface-inconsolata/index.css",
